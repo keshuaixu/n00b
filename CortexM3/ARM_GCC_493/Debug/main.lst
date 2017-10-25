@@ -1,0 +1,1233 @@
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	__aeabi_fmul
+  19              		.global	__aeabi_i2f
+  20              		.global	__aeabi_fadd
+  21              		.global	__aeabi_f2d
+  22              		.global	__aeabi_dcmpgt
+  23              		.section	.text.main,"ax",%progbits
+  24              		.align	2
+  25              		.global	main
+  26              		.thumb
+  27              		.thumb_func
+  28              		.type	main, %function
+  29              	main:
+  30              	.LFB63:
+  31              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include "math.h"
+  14:main.c        **** 
+  15:main.c        **** static int8 Mouse_Data[3] = {0, 0, 0};
+  16:main.c        **** static int32 last_count = 0;
+  17:main.c        **** static uint8 clicked = 0;
+  18:main.c        **** static float running_avg_vel = 0;
+  19:main.c        **** const float weight = 0.2;
+  20:main.c        **** 
+  21:main.c        **** int main(void)
+  22:main.c        **** {
+  32              		.loc 1 22 0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 2
+
+
+  36 0000 70B5     		push	{r4, r5, r6, lr}
+  37              		.cfi_def_cfa_offset 16
+  38              		.cfi_offset 4, -16
+  39              		.cfi_offset 5, -12
+  40              		.cfi_offset 6, -8
+  41              		.cfi_offset 14, -4
+  23:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  42              		.loc 1 23 0
+  43              	@ 23 "main.c" 1
+  44 0002 62B6     		CPSIE   i
+  45              	@ 0 "" 2
+  24:main.c        ****     QuadDec_1_Start();
+  46              		.loc 1 24 0
+  47              		.thumb
+  48 0004 FFF7FEFF 		bl	QuadDec_1_Start
+  49              	.LVL0:
+  25:main.c        ****     
+  26:main.c        ****     USBFS_1_Start(0, USBFS_1_DWR_VDDD_OPERATION);   /* Start USBFS Operation/device 0 and with 5V o
+  50              		.loc 1 26 0
+  51 0008 0020     		movs	r0, #0
+  52 000a 0221     		movs	r1, #2
+  53 000c FFF7FEFF 		bl	USBFS_1_Start
+  54              	.LVL1:
+  55              	.L2:
+  27:main.c        **** 	while(!USBFS_1_bGetConfiguration());      		/* Wait for Device to enumerate */
+  56              		.loc 1 27 0 discriminator 1
+  57 0010 FFF7FEFF 		bl	USBFS_1_GetConfiguration
+  58              	.LVL2:
+  59 0014 0028     		cmp	r0, #0
+  60 0016 FBD0     		beq	.L2
+  28:main.c        ****     USBFS_1_LoadInEP(1, (uint8 *)Mouse_Data, 3); 	/* Loads an inital value into EP1 and sends it ou
+  61              		.loc 1 28 0
+  62 0018 234C     		ldr	r4, .L13+8
+  63 001a 0120     		movs	r0, #1
+  64 001c 2146     		mov	r1, r4
+  65 001e 0322     		movs	r2, #3
+  66 0020 FFF7FEFF 		bl	USBFS_1_LoadInEP
+  67              	.LVL3:
+  29:main.c        **** 
+  30:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  31:main.c        ****     
+  32:main.c        ****     last_count = QuadDec_1_GetCounter();
+  68              		.loc 1 32 0
+  69 0024 FFF7FEFF 		bl	QuadDec_1_GetCounter
+  70              	.LVL4:
+  71 0028 6060     		str	r0, [r4, #4]
+  72              	.L8:
+  73              	.LBB2:
+  33:main.c        **** 
+  34:main.c        ****     for(;;)
+  35:main.c        ****     {
+  36:main.c        ****         int32 count = QuadDec_1_GetCounter();
+  74              		.loc 1 36 0
+  75 002a FFF7FEFF 		bl	QuadDec_1_GetCounter
+  76              	.LVL5:
+  37:main.c        ****         int32 delta = count - last_count;
+  77              		.loc 1 37 0
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 3
+
+
+  78 002e 1E4C     		ldr	r4, .L13+8
+  79 0030 6568     		ldr	r5, [r4, #4]
+  80 0032 451B     		subs	r5, r0, r5
+  81              	.LVL6:
+  38:main.c        ****         last_count = count;
+  82              		.loc 1 38 0
+  83 0034 6060     		str	r0, [r4, #4]
+  39:main.c        ****         Mouse_Data[1] = (int8) delta;
+  84              		.loc 1 39 0
+  85 0036 6570     		strb	r5, [r4, #1]
+  40:main.c        ****         running_avg_vel = (1 - weight) * running_avg_vel + weight * (float) abs(delta);
+  86              		.loc 1 40 0
+  87 0038 A068     		ldr	r0, [r4, #8]	@ float
+  88              	.LVL7:
+  89 003a 1C49     		ldr	r1, .L13+12
+  90 003c FFF7FEFF 		bl	__aeabi_fmul
+  91              	.LVL8:
+  92 0040 0646     		mov	r6, r0
+  93 0042 85EAE570 		eor	r0, r5, r5, asr #31
+  94 0046 A0EBE570 		sub	r0, r0, r5, asr #31
+  95 004a FFF7FEFF 		bl	__aeabi_i2f
+  96              	.LVL9:
+  97 004e 1849     		ldr	r1, .L13+16
+  98 0050 FFF7FEFF 		bl	__aeabi_fmul
+  99              	.LVL10:
+ 100 0054 0146     		mov	r1, r0
+ 101 0056 3046     		mov	r0, r6
+ 102 0058 FFF7FEFF 		bl	__aeabi_fadd
+ 103              	.LVL11:
+ 104 005c A060     		str	r0, [r4, #8]	@ float
+  41:main.c        ****         if (running_avg_vel > 0.00001)
+ 105              		.loc 1 41 0
+ 106 005e FFF7FEFF 		bl	__aeabi_f2d
+ 107              	.LVL12:
+ 108 0062 0FA3     		adr	r3, .L13
+ 109 0064 D3E90023 		ldrd	r2, [r3]
+ 110 0068 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 111              	.LVL13:
+ 112 006c 10B1     		cbz	r0, .L11
+  42:main.c        ****             clicked = 1;
+ 113              		.loc 1 42 0
+ 114 006e 0122     		movs	r2, #1
+ 115 0070 2273     		strb	r2, [r4, #12]
+ 116 0072 02E0     		b	.L5
+ 117              	.L11:
+  43:main.c        ****         else
+  44:main.c        ****             clicked = 0;
+ 118              		.loc 1 44 0
+ 119 0074 0022     		movs	r2, #0
+ 120 0076 0C4B     		ldr	r3, .L13+8
+ 121 0078 1A73     		strb	r2, [r3, #12]
+ 122              	.L5:
+  45:main.c        **** 
+  46:main.c        ****         
+  47:main.c        ****         Mouse_Data[0] = clicked ? 0x02 : 0x00;
+ 123              		.loc 1 47 0
+ 124 007a 0B4B     		ldr	r3, .L13+8
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 4
+
+
+ 125 007c 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
+ 126 007e 0BB1     		cbz	r3, .L9
+ 127 0080 0222     		movs	r2, #2
+ 128 0082 00E0     		b	.L6
+ 129              	.L9:
+ 130 0084 0022     		movs	r2, #0
+ 131              	.L6:
+ 132              		.loc 1 47 0 is_stmt 0 discriminator 4
+ 133 0086 084B     		ldr	r3, .L13+8
+ 134 0088 1A70     		strb	r2, [r3]
+ 135              	.L7:
+  48:main.c        ****         while(!USBFS_1_bGetEPAckState(1));  			/* Wait for ACK before loading data */
+ 136              		.loc 1 48 0 is_stmt 1 discriminator 1
+ 137 008a 0120     		movs	r0, #1
+ 138 008c FFF7FEFF 		bl	USBFS_1_GetEPAckState
+ 139              	.LVL14:
+ 140 0090 0028     		cmp	r0, #0
+ 141 0092 FAD0     		beq	.L7
+  49:main.c        **** 		USBFS_1_LoadInEP(1, (uint8 *)Mouse_Data, 3); 	/* Load latest mouse data into EP1 and send to PC *
+ 142              		.loc 1 49 0
+ 143 0094 0120     		movs	r0, #1
+ 144 0096 0449     		ldr	r1, .L13+8
+ 145 0098 0322     		movs	r2, #3
+ 146 009a FFF7FEFF 		bl	USBFS_1_LoadInEP
+ 147              	.LVL15:
+ 148              	.LBE2:
+  50:main.c        ****         
+  51:main.c        ****         
+  52:main.c        ****     }
+ 149              		.loc 1 52 0
+ 150 009e C4E7     		b	.L8
+ 151              	.L14:
+ 152              		.align	3
+ 153              	.L13:
+ 154 00a0 F168E388 		.word	-1998362383
+ 155 00a4 B5F8E43E 		.word	1055193269
+ 156 00a8 00000000 		.word	.LANCHOR0
+ 157 00ac CDCC4C3F 		.word	1061997773
+ 158 00b0 CDCC4C3E 		.word	1045220557
+ 159              		.cfi_endproc
+ 160              	.LFE63:
+ 161              		.size	main, .-main
+ 162              		.global	weight
+ 163 00b4 AFF30080 		.section	.rodata
+ 164              		.align	2
+ 165              		.type	weight, %object
+ 166              		.size	weight, 4
+ 167              	weight:
+ 168 0000 CDCC4C3E 		.word	1045220557
+ 169              		.bss
+ 170              		.align	2
+ 171              		.set	.LANCHOR0,. + 0
+ 172              		.type	Mouse_Data, %object
+ 173              		.size	Mouse_Data, 3
+ 174              	Mouse_Data:
+ 175 0000 000000   		.space	3
+ 176 0003 00       		.space	1
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 5
+
+
+ 177              		.type	last_count, %object
+ 178              		.size	last_count, 4
+ 179              	last_count:
+ 180 0004 00000000 		.space	4
+ 181              		.type	running_avg_vel, %object
+ 182              		.size	running_avg_vel, 4
+ 183              	running_avg_vel:
+ 184 0008 00000000 		.space	4
+ 185              		.type	clicked, %object
+ 186              		.size	clicked, 1
+ 187              	clicked:
+ 188 000c 00       		.space	1
+ 189 000d 000000   		.text
+ 190              	.Letext0:
+ 191              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 192              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 193              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 194              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 195              		.file 6 "Generated_Source\\PSoC5/USBFS_1.h"
+ 196              		.file 7 "Generated_Source\\PSoC5/QuadDec_1.h"
+ 197              		.file 8 "<built-in>"
+ 198              		.section	.debug_info,"",%progbits
+ 199              	.Ldebug_info0:
+ 200 0000 9A020000 		.4byte	0x29a
+ 201 0004 0400     		.2byte	0x4
+ 202 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 203 000a 04       		.byte	0x4
+ 204 000b 01       		.uleb128 0x1
+ 205 000c 2F010000 		.4byte	.LASF32
+ 206 0010 01       		.byte	0x1
+ 207 0011 0E020000 		.4byte	.LASF33
+ 208 0015 8C000000 		.4byte	.LASF34
+ 209 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 210 001d 00000000 		.4byte	0
+ 211 0021 00000000 		.4byte	.Ldebug_line0
+ 212 0025 02       		.uleb128 0x2
+ 213 0026 01       		.byte	0x1
+ 214 0027 06       		.byte	0x6
+ 215 0028 58020000 		.4byte	.LASF0
+ 216 002c 02       		.uleb128 0x2
+ 217 002d 01       		.byte	0x1
+ 218 002e 08       		.byte	0x8
+ 219 002f CB000000 		.4byte	.LASF1
+ 220 0033 02       		.uleb128 0x2
+ 221 0034 02       		.byte	0x2
+ 222 0035 05       		.byte	0x5
+ 223 0036 2B020000 		.4byte	.LASF2
+ 224 003a 02       		.uleb128 0x2
+ 225 003b 02       		.byte	0x2
+ 226 003c 07       		.byte	0x7
+ 227 003d 2E000000 		.4byte	.LASF3
+ 228 0041 03       		.uleb128 0x3
+ 229 0042 1E000000 		.4byte	.LASF9
+ 230 0046 02       		.byte	0x2
+ 231 0047 3F       		.byte	0x3f
+ 232 0048 4C000000 		.4byte	0x4c
+ 233 004c 02       		.uleb128 0x2
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 6
+
+
+ 234 004d 04       		.byte	0x4
+ 235 004e 05       		.byte	0x5
+ 236 004f 43020000 		.4byte	.LASF4
+ 237 0053 02       		.uleb128 0x2
+ 238 0054 04       		.byte	0x4
+ 239 0055 07       		.byte	0x7
+ 240 0056 D9000000 		.4byte	.LASF5
+ 241 005a 02       		.uleb128 0x2
+ 242 005b 08       		.byte	0x8
+ 243 005c 05       		.byte	0x5
+ 244 005d 00020000 		.4byte	.LASF6
+ 245 0061 02       		.uleb128 0x2
+ 246 0062 08       		.byte	0x8
+ 247 0063 07       		.byte	0x7
+ 248 0064 CA010000 		.4byte	.LASF7
+ 249 0068 04       		.uleb128 0x4
+ 250 0069 04       		.byte	0x4
+ 251 006a 05       		.byte	0x5
+ 252 006b 696E7400 		.ascii	"int\000"
+ 253 006f 02       		.uleb128 0x2
+ 254 0070 04       		.byte	0x4
+ 255 0071 07       		.byte	0x7
+ 256 0072 BD010000 		.4byte	.LASF8
+ 257 0076 03       		.uleb128 0x3
+ 258 0077 6D000000 		.4byte	.LASF10
+ 259 007b 03       		.byte	0x3
+ 260 007c 2C       		.byte	0x2c
+ 261 007d 41000000 		.4byte	0x41
+ 262 0081 05       		.uleb128 0x5
+ 263 0082 35020000 		.4byte	.LASF11
+ 264 0086 04       		.byte	0x4
+ 265 0087 9201     		.2byte	0x192
+ 266 0089 2C000000 		.4byte	0x2c
+ 267 008d 05       		.uleb128 0x5
+ 268 008e 23010000 		.4byte	.LASF12
+ 269 0092 04       		.byte	0x4
+ 270 0093 9301     		.2byte	0x193
+ 271 0095 3A000000 		.4byte	0x3a
+ 272 0099 05       		.uleb128 0x5
+ 273 009a 2A010000 		.4byte	.LASF13
+ 274 009e 04       		.byte	0x4
+ 275 009f 9501     		.2byte	0x195
+ 276 00a1 25000000 		.4byte	0x25
+ 277 00a5 05       		.uleb128 0x5
+ 278 00a6 EB000000 		.4byte	.LASF14
+ 279 00aa 04       		.byte	0x4
+ 280 00ab 9701     		.2byte	0x197
+ 281 00ad 4C000000 		.4byte	0x4c
+ 282 00b1 02       		.uleb128 0x2
+ 283 00b2 04       		.byte	0x4
+ 284 00b3 04       		.byte	0x4
+ 285 00b4 86000000 		.4byte	.LASF15
+ 286 00b8 02       		.uleb128 0x2
+ 287 00b9 08       		.byte	0x8
+ 288 00ba 04       		.byte	0x4
+ 289 00bb 17010000 		.4byte	.LASF16
+ 290 00bf 02       		.uleb128 0x2
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 7
+
+
+ 291 00c0 01       		.byte	0x1
+ 292 00c1 08       		.byte	0x8
+ 293 00c2 15020000 		.4byte	.LASF17
+ 294 00c6 02       		.uleb128 0x2
+ 295 00c7 04       		.byte	0x4
+ 296 00c8 07       		.byte	0x7
+ 297 00c9 E1010000 		.4byte	.LASF18
+ 298 00cd 02       		.uleb128 0x2
+ 299 00ce 08       		.byte	0x8
+ 300 00cf 04       		.byte	0x4
+ 301 00d0 4C020000 		.4byte	.LASF19
+ 302 00d4 06       		.uleb128 0x6
+ 303 00d5 1E010000 		.4byte	.LASF35
+ 304 00d9 01       		.byte	0x1
+ 305 00da 15       		.byte	0x15
+ 306 00db 68000000 		.4byte	0x68
+ 307 00df 00000000 		.4byte	.LFB63
+ 308 00e3 B4000000 		.4byte	.LFE63-.LFB63
+ 309 00e7 01       		.uleb128 0x1
+ 310 00e8 9C       		.byte	0x9c
+ 311 00e9 B0010000 		.4byte	0x1b0
+ 312 00ed 07       		.uleb128 0x7
+ 313 00ee 2A000000 		.4byte	.LBB2
+ 314 00f2 74000000 		.4byte	.LBE2-.LBB2
+ 315 00f6 5E010000 		.4byte	0x15e
+ 316 00fa 08       		.uleb128 0x8
+ 317 00fb 25020000 		.4byte	.LASF20
+ 318 00ff 01       		.byte	0x1
+ 319 0100 24       		.byte	0x24
+ 320 0101 A5000000 		.4byte	0xa5
+ 321 0105 00000000 		.4byte	.LLST0
+ 322 0109 09       		.uleb128 0x9
+ 323 010a 28000000 		.4byte	.LASF21
+ 324 010e 01       		.byte	0x1
+ 325 010f 25       		.byte	0x25
+ 326 0110 A5000000 		.4byte	0xa5
+ 327 0114 01       		.uleb128 0x1
+ 328 0115 55       		.byte	0x55
+ 329 0116 0A       		.uleb128 0xa
+ 330 0117 61627300 		.ascii	"abs\000"
+ 331 011b 08       		.byte	0x8
+ 332 011c 00       		.byte	0
+ 333 011d 68000000 		.4byte	0x68
+ 334 0121 27010000 		.4byte	0x127
+ 335 0125 0B       		.uleb128 0xb
+ 336 0126 00       		.byte	0
+ 337 0127 0C       		.uleb128 0xc
+ 338 0128 2E000000 		.4byte	.LVL5
+ 339 012c 2B020000 		.4byte	0x22b
+ 340 0130 0D       		.uleb128 0xd
+ 341 0131 90000000 		.4byte	.LVL14
+ 342 0135 36020000 		.4byte	0x236
+ 343 0139 43010000 		.4byte	0x143
+ 344 013d 0E       		.uleb128 0xe
+ 345 013e 01       		.uleb128 0x1
+ 346 013f 50       		.byte	0x50
+ 347 0140 01       		.uleb128 0x1
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 8
+
+
+ 348 0141 31       		.byte	0x31
+ 349 0142 00       		.byte	0
+ 350 0143 0F       		.uleb128 0xf
+ 351 0144 9E000000 		.4byte	.LVL15
+ 352 0148 4C020000 		.4byte	0x24c
+ 353 014c 0E       		.uleb128 0xe
+ 354 014d 01       		.uleb128 0x1
+ 355 014e 52       		.byte	0x52
+ 356 014f 01       		.uleb128 0x1
+ 357 0150 33       		.byte	0x33
+ 358 0151 0E       		.uleb128 0xe
+ 359 0152 01       		.uleb128 0x1
+ 360 0153 51       		.byte	0x51
+ 361 0154 02       		.uleb128 0x2
+ 362 0155 74       		.byte	0x74
+ 363 0156 00       		.sleb128 0
+ 364 0157 0E       		.uleb128 0xe
+ 365 0158 01       		.uleb128 0x1
+ 366 0159 50       		.byte	0x50
+ 367 015a 01       		.uleb128 0x1
+ 368 015b 31       		.byte	0x31
+ 369 015c 00       		.byte	0
+ 370 015d 00       		.byte	0
+ 371 015e 0C       		.uleb128 0xc
+ 372 015f 08000000 		.4byte	.LVL0
+ 373 0163 73020000 		.4byte	0x273
+ 374 0167 0D       		.uleb128 0xd
+ 375 0168 10000000 		.4byte	.LVL1
+ 376 016c 7A020000 		.4byte	0x27a
+ 377 0170 7F010000 		.4byte	0x17f
+ 378 0174 0E       		.uleb128 0xe
+ 379 0175 01       		.uleb128 0x1
+ 380 0176 51       		.byte	0x51
+ 381 0177 01       		.uleb128 0x1
+ 382 0178 32       		.byte	0x32
+ 383 0179 0E       		.uleb128 0xe
+ 384 017a 01       		.uleb128 0x1
+ 385 017b 50       		.byte	0x50
+ 386 017c 01       		.uleb128 0x1
+ 387 017d 30       		.byte	0x30
+ 388 017e 00       		.byte	0
+ 389 017f 0C       		.uleb128 0xc
+ 390 0180 14000000 		.4byte	.LVL2
+ 391 0184 91020000 		.4byte	0x291
+ 392 0188 0D       		.uleb128 0xd
+ 393 0189 24000000 		.4byte	.LVL3
+ 394 018d 4C020000 		.4byte	0x24c
+ 395 0191 A6010000 		.4byte	0x1a6
+ 396 0195 0E       		.uleb128 0xe
+ 397 0196 01       		.uleb128 0x1
+ 398 0197 52       		.byte	0x52
+ 399 0198 01       		.uleb128 0x1
+ 400 0199 33       		.byte	0x33
+ 401 019a 0E       		.uleb128 0xe
+ 402 019b 01       		.uleb128 0x1
+ 403 019c 51       		.byte	0x51
+ 404 019d 02       		.uleb128 0x2
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 9
+
+
+ 405 019e 74       		.byte	0x74
+ 406 019f 00       		.sleb128 0
+ 407 01a0 0E       		.uleb128 0xe
+ 408 01a1 01       		.uleb128 0x1
+ 409 01a2 50       		.byte	0x50
+ 410 01a3 01       		.uleb128 0x1
+ 411 01a4 31       		.byte	0x31
+ 412 01a5 00       		.byte	0
+ 413 01a6 0C       		.uleb128 0xc
+ 414 01a7 28000000 		.4byte	.LVL4
+ 415 01ab 2B020000 		.4byte	0x22b
+ 416 01af 00       		.byte	0
+ 417 01b0 10       		.uleb128 0x10
+ 418 01b1 99000000 		.4byte	0x99
+ 419 01b5 C0010000 		.4byte	0x1c0
+ 420 01b9 11       		.uleb128 0x11
+ 421 01ba C6000000 		.4byte	0xc6
+ 422 01be 02       		.byte	0x2
+ 423 01bf 00       		.byte	0
+ 424 01c0 09       		.uleb128 0x9
+ 425 01c1 64020000 		.4byte	.LASF22
+ 426 01c5 01       		.byte	0x1
+ 427 01c6 0F       		.byte	0xf
+ 428 01c7 B0010000 		.4byte	0x1b0
+ 429 01cb 05       		.uleb128 0x5
+ 430 01cc 03       		.byte	0x3
+ 431 01cd 00000000 		.4byte	Mouse_Data
+ 432 01d1 09       		.uleb128 0x9
+ 433 01d2 1A020000 		.4byte	.LASF23
+ 434 01d6 01       		.byte	0x1
+ 435 01d7 10       		.byte	0x10
+ 436 01d8 A5000000 		.4byte	0xa5
+ 437 01dc 05       		.uleb128 0x5
+ 438 01dd 03       		.byte	0x3
+ 439 01de 04000000 		.4byte	last_count
+ 440 01e2 09       		.uleb128 0x9
+ 441 01e3 3B020000 		.4byte	.LASF24
+ 442 01e7 01       		.byte	0x1
+ 443 01e8 11       		.byte	0x11
+ 444 01e9 81000000 		.4byte	0x81
+ 445 01ed 05       		.uleb128 0x5
+ 446 01ee 03       		.byte	0x3
+ 447 01ef 0C000000 		.4byte	clicked
+ 448 01f3 09       		.uleb128 0x9
+ 449 01f4 41000000 		.4byte	.LASF25
+ 450 01f8 01       		.byte	0x1
+ 451 01f9 12       		.byte	0x12
+ 452 01fa B1000000 		.4byte	0xb1
+ 453 01fe 05       		.uleb128 0x5
+ 454 01ff 03       		.byte	0x3
+ 455 0200 08000000 		.4byte	running_avg_vel
+ 456 0204 12       		.uleb128 0x12
+ 457 0205 F1000000 		.4byte	.LASF26
+ 458 0209 05       		.byte	0x5
+ 459 020a 9606     		.2byte	0x696
+ 460 020c 10020000 		.4byte	0x210
+ 461 0210 13       		.uleb128 0x13
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 10
+
+
+ 462 0211 76000000 		.4byte	0x76
+ 463 0215 14       		.uleb128 0x14
+ 464 0216 51000000 		.4byte	.LASF27
+ 465 021a 01       		.byte	0x1
+ 466 021b 13       		.byte	0x13
+ 467 021c 26020000 		.4byte	0x226
+ 468 0220 05       		.uleb128 0x5
+ 469 0221 03       		.byte	0x3
+ 470 0222 00000000 		.4byte	weight
+ 471 0226 15       		.uleb128 0x15
+ 472 0227 B1000000 		.4byte	0xb1
+ 473 022b 16       		.uleb128 0x16
+ 474 022c 58000000 		.4byte	.LASF30
+ 475 0230 07       		.byte	0x7
+ 476 0231 4E       		.byte	0x4e
+ 477 0232 A5000000 		.4byte	0xa5
+ 478 0236 17       		.uleb128 0x17
+ 479 0237 EA010000 		.4byte	.LASF36
+ 480 023b 06       		.byte	0x6
+ 481 023c 3C01     		.2byte	0x13c
+ 482 023e 81000000 		.4byte	0x81
+ 483 0242 4C020000 		.4byte	0x24c
+ 484 0246 18       		.uleb128 0x18
+ 485 0247 81000000 		.4byte	0x81
+ 486 024b 00       		.byte	0
+ 487 024c 19       		.uleb128 0x19
+ 488 024d 75000000 		.4byte	.LASF28
+ 489 0251 06       		.byte	0x6
+ 490 0252 3501     		.2byte	0x135
+ 491 0254 68020000 		.4byte	0x268
+ 492 0258 18       		.uleb128 0x18
+ 493 0259 81000000 		.4byte	0x81
+ 494 025d 18       		.uleb128 0x18
+ 495 025e 68020000 		.4byte	0x268
+ 496 0262 18       		.uleb128 0x18
+ 497 0263 8D000000 		.4byte	0x8d
+ 498 0267 00       		.byte	0
+ 499 0268 1A       		.uleb128 0x1a
+ 500 0269 04       		.byte	0x4
+ 501 026a 6E020000 		.4byte	0x26e
+ 502 026e 15       		.uleb128 0x15
+ 503 026f 81000000 		.4byte	0x81
+ 504 0273 1B       		.uleb128 0x1b
+ 505 0274 00000000 		.4byte	.LASF37
+ 506 0278 07       		.byte	0x7
+ 507 0279 48       		.byte	0x48
+ 508 027a 19       		.uleb128 0x19
+ 509 027b 10000000 		.4byte	.LASF29
+ 510 027f 06       		.byte	0x6
+ 511 0280 2D01     		.2byte	0x12d
+ 512 0282 91020000 		.4byte	0x291
+ 513 0286 18       		.uleb128 0x18
+ 514 0287 81000000 		.4byte	0x81
+ 515 028b 18       		.uleb128 0x18
+ 516 028c 81000000 		.4byte	0x81
+ 517 0290 00       		.byte	0
+ 518 0291 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 11
+
+
+ 519 0292 FE000000 		.4byte	.LASF31
+ 520 0296 06       		.byte	0x6
+ 521 0297 3001     		.2byte	0x130
+ 522 0299 81000000 		.4byte	0x81
+ 523 029d 00       		.byte	0
+ 524              		.section	.debug_abbrev,"",%progbits
+ 525              	.Ldebug_abbrev0:
+ 526 0000 01       		.uleb128 0x1
+ 527 0001 11       		.uleb128 0x11
+ 528 0002 01       		.byte	0x1
+ 529 0003 25       		.uleb128 0x25
+ 530 0004 0E       		.uleb128 0xe
+ 531 0005 13       		.uleb128 0x13
+ 532 0006 0B       		.uleb128 0xb
+ 533 0007 03       		.uleb128 0x3
+ 534 0008 0E       		.uleb128 0xe
+ 535 0009 1B       		.uleb128 0x1b
+ 536 000a 0E       		.uleb128 0xe
+ 537 000b 55       		.uleb128 0x55
+ 538 000c 17       		.uleb128 0x17
+ 539 000d 11       		.uleb128 0x11
+ 540 000e 01       		.uleb128 0x1
+ 541 000f 10       		.uleb128 0x10
+ 542 0010 17       		.uleb128 0x17
+ 543 0011 00       		.byte	0
+ 544 0012 00       		.byte	0
+ 545 0013 02       		.uleb128 0x2
+ 546 0014 24       		.uleb128 0x24
+ 547 0015 00       		.byte	0
+ 548 0016 0B       		.uleb128 0xb
+ 549 0017 0B       		.uleb128 0xb
+ 550 0018 3E       		.uleb128 0x3e
+ 551 0019 0B       		.uleb128 0xb
+ 552 001a 03       		.uleb128 0x3
+ 553 001b 0E       		.uleb128 0xe
+ 554 001c 00       		.byte	0
+ 555 001d 00       		.byte	0
+ 556 001e 03       		.uleb128 0x3
+ 557 001f 16       		.uleb128 0x16
+ 558 0020 00       		.byte	0
+ 559 0021 03       		.uleb128 0x3
+ 560 0022 0E       		.uleb128 0xe
+ 561 0023 3A       		.uleb128 0x3a
+ 562 0024 0B       		.uleb128 0xb
+ 563 0025 3B       		.uleb128 0x3b
+ 564 0026 0B       		.uleb128 0xb
+ 565 0027 49       		.uleb128 0x49
+ 566 0028 13       		.uleb128 0x13
+ 567 0029 00       		.byte	0
+ 568 002a 00       		.byte	0
+ 569 002b 04       		.uleb128 0x4
+ 570 002c 24       		.uleb128 0x24
+ 571 002d 00       		.byte	0
+ 572 002e 0B       		.uleb128 0xb
+ 573 002f 0B       		.uleb128 0xb
+ 574 0030 3E       		.uleb128 0x3e
+ 575 0031 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 12
+
+
+ 576 0032 03       		.uleb128 0x3
+ 577 0033 08       		.uleb128 0x8
+ 578 0034 00       		.byte	0
+ 579 0035 00       		.byte	0
+ 580 0036 05       		.uleb128 0x5
+ 581 0037 16       		.uleb128 0x16
+ 582 0038 00       		.byte	0
+ 583 0039 03       		.uleb128 0x3
+ 584 003a 0E       		.uleb128 0xe
+ 585 003b 3A       		.uleb128 0x3a
+ 586 003c 0B       		.uleb128 0xb
+ 587 003d 3B       		.uleb128 0x3b
+ 588 003e 05       		.uleb128 0x5
+ 589 003f 49       		.uleb128 0x49
+ 590 0040 13       		.uleb128 0x13
+ 591 0041 00       		.byte	0
+ 592 0042 00       		.byte	0
+ 593 0043 06       		.uleb128 0x6
+ 594 0044 2E       		.uleb128 0x2e
+ 595 0045 01       		.byte	0x1
+ 596 0046 3F       		.uleb128 0x3f
+ 597 0047 19       		.uleb128 0x19
+ 598 0048 03       		.uleb128 0x3
+ 599 0049 0E       		.uleb128 0xe
+ 600 004a 3A       		.uleb128 0x3a
+ 601 004b 0B       		.uleb128 0xb
+ 602 004c 3B       		.uleb128 0x3b
+ 603 004d 0B       		.uleb128 0xb
+ 604 004e 27       		.uleb128 0x27
+ 605 004f 19       		.uleb128 0x19
+ 606 0050 49       		.uleb128 0x49
+ 607 0051 13       		.uleb128 0x13
+ 608 0052 11       		.uleb128 0x11
+ 609 0053 01       		.uleb128 0x1
+ 610 0054 12       		.uleb128 0x12
+ 611 0055 06       		.uleb128 0x6
+ 612 0056 40       		.uleb128 0x40
+ 613 0057 18       		.uleb128 0x18
+ 614 0058 9642     		.uleb128 0x2116
+ 615 005a 19       		.uleb128 0x19
+ 616 005b 01       		.uleb128 0x1
+ 617 005c 13       		.uleb128 0x13
+ 618 005d 00       		.byte	0
+ 619 005e 00       		.byte	0
+ 620 005f 07       		.uleb128 0x7
+ 621 0060 0B       		.uleb128 0xb
+ 622 0061 01       		.byte	0x1
+ 623 0062 11       		.uleb128 0x11
+ 624 0063 01       		.uleb128 0x1
+ 625 0064 12       		.uleb128 0x12
+ 626 0065 06       		.uleb128 0x6
+ 627 0066 01       		.uleb128 0x1
+ 628 0067 13       		.uleb128 0x13
+ 629 0068 00       		.byte	0
+ 630 0069 00       		.byte	0
+ 631 006a 08       		.uleb128 0x8
+ 632 006b 34       		.uleb128 0x34
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 13
+
+
+ 633 006c 00       		.byte	0
+ 634 006d 03       		.uleb128 0x3
+ 635 006e 0E       		.uleb128 0xe
+ 636 006f 3A       		.uleb128 0x3a
+ 637 0070 0B       		.uleb128 0xb
+ 638 0071 3B       		.uleb128 0x3b
+ 639 0072 0B       		.uleb128 0xb
+ 640 0073 49       		.uleb128 0x49
+ 641 0074 13       		.uleb128 0x13
+ 642 0075 02       		.uleb128 0x2
+ 643 0076 17       		.uleb128 0x17
+ 644 0077 00       		.byte	0
+ 645 0078 00       		.byte	0
+ 646 0079 09       		.uleb128 0x9
+ 647 007a 34       		.uleb128 0x34
+ 648 007b 00       		.byte	0
+ 649 007c 03       		.uleb128 0x3
+ 650 007d 0E       		.uleb128 0xe
+ 651 007e 3A       		.uleb128 0x3a
+ 652 007f 0B       		.uleb128 0xb
+ 653 0080 3B       		.uleb128 0x3b
+ 654 0081 0B       		.uleb128 0xb
+ 655 0082 49       		.uleb128 0x49
+ 656 0083 13       		.uleb128 0x13
+ 657 0084 02       		.uleb128 0x2
+ 658 0085 18       		.uleb128 0x18
+ 659 0086 00       		.byte	0
+ 660 0087 00       		.byte	0
+ 661 0088 0A       		.uleb128 0xa
+ 662 0089 2E       		.uleb128 0x2e
+ 663 008a 01       		.byte	0x1
+ 664 008b 3F       		.uleb128 0x3f
+ 665 008c 19       		.uleb128 0x19
+ 666 008d 03       		.uleb128 0x3
+ 667 008e 08       		.uleb128 0x8
+ 668 008f 3A       		.uleb128 0x3a
+ 669 0090 0B       		.uleb128 0xb
+ 670 0091 3B       		.uleb128 0x3b
+ 671 0092 0B       		.uleb128 0xb
+ 672 0093 49       		.uleb128 0x49
+ 673 0094 13       		.uleb128 0x13
+ 674 0095 3C       		.uleb128 0x3c
+ 675 0096 19       		.uleb128 0x19
+ 676 0097 01       		.uleb128 0x1
+ 677 0098 13       		.uleb128 0x13
+ 678 0099 00       		.byte	0
+ 679 009a 00       		.byte	0
+ 680 009b 0B       		.uleb128 0xb
+ 681 009c 18       		.uleb128 0x18
+ 682 009d 00       		.byte	0
+ 683 009e 00       		.byte	0
+ 684 009f 00       		.byte	0
+ 685 00a0 0C       		.uleb128 0xc
+ 686 00a1 898201   		.uleb128 0x4109
+ 687 00a4 00       		.byte	0
+ 688 00a5 11       		.uleb128 0x11
+ 689 00a6 01       		.uleb128 0x1
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 14
+
+
+ 690 00a7 31       		.uleb128 0x31
+ 691 00a8 13       		.uleb128 0x13
+ 692 00a9 00       		.byte	0
+ 693 00aa 00       		.byte	0
+ 694 00ab 0D       		.uleb128 0xd
+ 695 00ac 898201   		.uleb128 0x4109
+ 696 00af 01       		.byte	0x1
+ 697 00b0 11       		.uleb128 0x11
+ 698 00b1 01       		.uleb128 0x1
+ 699 00b2 31       		.uleb128 0x31
+ 700 00b3 13       		.uleb128 0x13
+ 701 00b4 01       		.uleb128 0x1
+ 702 00b5 13       		.uleb128 0x13
+ 703 00b6 00       		.byte	0
+ 704 00b7 00       		.byte	0
+ 705 00b8 0E       		.uleb128 0xe
+ 706 00b9 8A8201   		.uleb128 0x410a
+ 707 00bc 00       		.byte	0
+ 708 00bd 02       		.uleb128 0x2
+ 709 00be 18       		.uleb128 0x18
+ 710 00bf 9142     		.uleb128 0x2111
+ 711 00c1 18       		.uleb128 0x18
+ 712 00c2 00       		.byte	0
+ 713 00c3 00       		.byte	0
+ 714 00c4 0F       		.uleb128 0xf
+ 715 00c5 898201   		.uleb128 0x4109
+ 716 00c8 01       		.byte	0x1
+ 717 00c9 11       		.uleb128 0x11
+ 718 00ca 01       		.uleb128 0x1
+ 719 00cb 31       		.uleb128 0x31
+ 720 00cc 13       		.uleb128 0x13
+ 721 00cd 00       		.byte	0
+ 722 00ce 00       		.byte	0
+ 723 00cf 10       		.uleb128 0x10
+ 724 00d0 01       		.uleb128 0x1
+ 725 00d1 01       		.byte	0x1
+ 726 00d2 49       		.uleb128 0x49
+ 727 00d3 13       		.uleb128 0x13
+ 728 00d4 01       		.uleb128 0x1
+ 729 00d5 13       		.uleb128 0x13
+ 730 00d6 00       		.byte	0
+ 731 00d7 00       		.byte	0
+ 732 00d8 11       		.uleb128 0x11
+ 733 00d9 21       		.uleb128 0x21
+ 734 00da 00       		.byte	0
+ 735 00db 49       		.uleb128 0x49
+ 736 00dc 13       		.uleb128 0x13
+ 737 00dd 2F       		.uleb128 0x2f
+ 738 00de 0B       		.uleb128 0xb
+ 739 00df 00       		.byte	0
+ 740 00e0 00       		.byte	0
+ 741 00e1 12       		.uleb128 0x12
+ 742 00e2 34       		.uleb128 0x34
+ 743 00e3 00       		.byte	0
+ 744 00e4 03       		.uleb128 0x3
+ 745 00e5 0E       		.uleb128 0xe
+ 746 00e6 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 15
+
+
+ 747 00e7 0B       		.uleb128 0xb
+ 748 00e8 3B       		.uleb128 0x3b
+ 749 00e9 05       		.uleb128 0x5
+ 750 00ea 49       		.uleb128 0x49
+ 751 00eb 13       		.uleb128 0x13
+ 752 00ec 3F       		.uleb128 0x3f
+ 753 00ed 19       		.uleb128 0x19
+ 754 00ee 3C       		.uleb128 0x3c
+ 755 00ef 19       		.uleb128 0x19
+ 756 00f0 00       		.byte	0
+ 757 00f1 00       		.byte	0
+ 758 00f2 13       		.uleb128 0x13
+ 759 00f3 35       		.uleb128 0x35
+ 760 00f4 00       		.byte	0
+ 761 00f5 49       		.uleb128 0x49
+ 762 00f6 13       		.uleb128 0x13
+ 763 00f7 00       		.byte	0
+ 764 00f8 00       		.byte	0
+ 765 00f9 14       		.uleb128 0x14
+ 766 00fa 34       		.uleb128 0x34
+ 767 00fb 00       		.byte	0
+ 768 00fc 03       		.uleb128 0x3
+ 769 00fd 0E       		.uleb128 0xe
+ 770 00fe 3A       		.uleb128 0x3a
+ 771 00ff 0B       		.uleb128 0xb
+ 772 0100 3B       		.uleb128 0x3b
+ 773 0101 0B       		.uleb128 0xb
+ 774 0102 49       		.uleb128 0x49
+ 775 0103 13       		.uleb128 0x13
+ 776 0104 3F       		.uleb128 0x3f
+ 777 0105 19       		.uleb128 0x19
+ 778 0106 02       		.uleb128 0x2
+ 779 0107 18       		.uleb128 0x18
+ 780 0108 00       		.byte	0
+ 781 0109 00       		.byte	0
+ 782 010a 15       		.uleb128 0x15
+ 783 010b 26       		.uleb128 0x26
+ 784 010c 00       		.byte	0
+ 785 010d 49       		.uleb128 0x49
+ 786 010e 13       		.uleb128 0x13
+ 787 010f 00       		.byte	0
+ 788 0110 00       		.byte	0
+ 789 0111 16       		.uleb128 0x16
+ 790 0112 2E       		.uleb128 0x2e
+ 791 0113 00       		.byte	0
+ 792 0114 3F       		.uleb128 0x3f
+ 793 0115 19       		.uleb128 0x19
+ 794 0116 03       		.uleb128 0x3
+ 795 0117 0E       		.uleb128 0xe
+ 796 0118 3A       		.uleb128 0x3a
+ 797 0119 0B       		.uleb128 0xb
+ 798 011a 3B       		.uleb128 0x3b
+ 799 011b 0B       		.uleb128 0xb
+ 800 011c 27       		.uleb128 0x27
+ 801 011d 19       		.uleb128 0x19
+ 802 011e 49       		.uleb128 0x49
+ 803 011f 13       		.uleb128 0x13
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 16
+
+
+ 804 0120 3C       		.uleb128 0x3c
+ 805 0121 19       		.uleb128 0x19
+ 806 0122 00       		.byte	0
+ 807 0123 00       		.byte	0
+ 808 0124 17       		.uleb128 0x17
+ 809 0125 2E       		.uleb128 0x2e
+ 810 0126 01       		.byte	0x1
+ 811 0127 3F       		.uleb128 0x3f
+ 812 0128 19       		.uleb128 0x19
+ 813 0129 03       		.uleb128 0x3
+ 814 012a 0E       		.uleb128 0xe
+ 815 012b 3A       		.uleb128 0x3a
+ 816 012c 0B       		.uleb128 0xb
+ 817 012d 3B       		.uleb128 0x3b
+ 818 012e 05       		.uleb128 0x5
+ 819 012f 27       		.uleb128 0x27
+ 820 0130 19       		.uleb128 0x19
+ 821 0131 49       		.uleb128 0x49
+ 822 0132 13       		.uleb128 0x13
+ 823 0133 3C       		.uleb128 0x3c
+ 824 0134 19       		.uleb128 0x19
+ 825 0135 01       		.uleb128 0x1
+ 826 0136 13       		.uleb128 0x13
+ 827 0137 00       		.byte	0
+ 828 0138 00       		.byte	0
+ 829 0139 18       		.uleb128 0x18
+ 830 013a 05       		.uleb128 0x5
+ 831 013b 00       		.byte	0
+ 832 013c 49       		.uleb128 0x49
+ 833 013d 13       		.uleb128 0x13
+ 834 013e 00       		.byte	0
+ 835 013f 00       		.byte	0
+ 836 0140 19       		.uleb128 0x19
+ 837 0141 2E       		.uleb128 0x2e
+ 838 0142 01       		.byte	0x1
+ 839 0143 3F       		.uleb128 0x3f
+ 840 0144 19       		.uleb128 0x19
+ 841 0145 03       		.uleb128 0x3
+ 842 0146 0E       		.uleb128 0xe
+ 843 0147 3A       		.uleb128 0x3a
+ 844 0148 0B       		.uleb128 0xb
+ 845 0149 3B       		.uleb128 0x3b
+ 846 014a 05       		.uleb128 0x5
+ 847 014b 27       		.uleb128 0x27
+ 848 014c 19       		.uleb128 0x19
+ 849 014d 3C       		.uleb128 0x3c
+ 850 014e 19       		.uleb128 0x19
+ 851 014f 01       		.uleb128 0x1
+ 852 0150 13       		.uleb128 0x13
+ 853 0151 00       		.byte	0
+ 854 0152 00       		.byte	0
+ 855 0153 1A       		.uleb128 0x1a
+ 856 0154 0F       		.uleb128 0xf
+ 857 0155 00       		.byte	0
+ 858 0156 0B       		.uleb128 0xb
+ 859 0157 0B       		.uleb128 0xb
+ 860 0158 49       		.uleb128 0x49
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 17
+
+
+ 861 0159 13       		.uleb128 0x13
+ 862 015a 00       		.byte	0
+ 863 015b 00       		.byte	0
+ 864 015c 1B       		.uleb128 0x1b
+ 865 015d 2E       		.uleb128 0x2e
+ 866 015e 00       		.byte	0
+ 867 015f 3F       		.uleb128 0x3f
+ 868 0160 19       		.uleb128 0x19
+ 869 0161 03       		.uleb128 0x3
+ 870 0162 0E       		.uleb128 0xe
+ 871 0163 3A       		.uleb128 0x3a
+ 872 0164 0B       		.uleb128 0xb
+ 873 0165 3B       		.uleb128 0x3b
+ 874 0166 0B       		.uleb128 0xb
+ 875 0167 27       		.uleb128 0x27
+ 876 0168 19       		.uleb128 0x19
+ 877 0169 3C       		.uleb128 0x3c
+ 878 016a 19       		.uleb128 0x19
+ 879 016b 00       		.byte	0
+ 880 016c 00       		.byte	0
+ 881 016d 1C       		.uleb128 0x1c
+ 882 016e 2E       		.uleb128 0x2e
+ 883 016f 00       		.byte	0
+ 884 0170 3F       		.uleb128 0x3f
+ 885 0171 19       		.uleb128 0x19
+ 886 0172 03       		.uleb128 0x3
+ 887 0173 0E       		.uleb128 0xe
+ 888 0174 3A       		.uleb128 0x3a
+ 889 0175 0B       		.uleb128 0xb
+ 890 0176 3B       		.uleb128 0x3b
+ 891 0177 05       		.uleb128 0x5
+ 892 0178 27       		.uleb128 0x27
+ 893 0179 19       		.uleb128 0x19
+ 894 017a 49       		.uleb128 0x49
+ 895 017b 13       		.uleb128 0x13
+ 896 017c 3C       		.uleb128 0x3c
+ 897 017d 19       		.uleb128 0x19
+ 898 017e 00       		.byte	0
+ 899 017f 00       		.byte	0
+ 900 0180 00       		.byte	0
+ 901              		.section	.debug_loc,"",%progbits
+ 902              	.Ldebug_loc0:
+ 903              	.LLST0:
+ 904 0000 2E000000 		.4byte	.LVL5
+ 905 0004 3A000000 		.4byte	.LVL7
+ 906 0008 0100     		.2byte	0x1
+ 907 000a 50       		.byte	0x50
+ 908 000b 3A000000 		.4byte	.LVL7
+ 909 000f 3F000000 		.4byte	.LVL8-1
+ 910 0013 0500     		.2byte	0x5
+ 911 0015 03       		.byte	0x3
+ 912 0016 04000000 		.4byte	last_count
+ 913 001a 00000000 		.4byte	0
+ 914 001e 00000000 		.4byte	0
+ 915              		.section	.debug_aranges,"",%progbits
+ 916 0000 1C000000 		.4byte	0x1c
+ 917 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 18
+
+
+ 918 0006 00000000 		.4byte	.Ldebug_info0
+ 919 000a 04       		.byte	0x4
+ 920 000b 00       		.byte	0
+ 921 000c 0000     		.2byte	0
+ 922 000e 0000     		.2byte	0
+ 923 0010 00000000 		.4byte	.LFB63
+ 924 0014 B4000000 		.4byte	.LFE63-.LFB63
+ 925 0018 00000000 		.4byte	0
+ 926 001c 00000000 		.4byte	0
+ 927              		.section	.debug_ranges,"",%progbits
+ 928              	.Ldebug_ranges0:
+ 929 0000 00000000 		.4byte	.LFB63
+ 930 0004 B4000000 		.4byte	.LFE63
+ 931 0008 00000000 		.4byte	0
+ 932 000c 00000000 		.4byte	0
+ 933              		.section	.debug_line,"",%progbits
+ 934              	.Ldebug_line0:
+ 935 0000 A8010000 		.section	.debug_str,"MS",%progbits,1
+ 935      02007101 
+ 935      00000201 
+ 935      FB0E0D00 
+ 935      01010101 
+ 936              	.LASF37:
+ 937 0000 51756164 		.ascii	"QuadDec_1_Start\000"
+ 937      4465635F 
+ 937      315F5374 
+ 937      61727400 
+ 938              	.LASF29:
+ 939 0010 55534246 		.ascii	"USBFS_1_Start\000"
+ 939      535F315F 
+ 939      53746172 
+ 939      7400
+ 940              	.LASF9:
+ 941 001e 5F5F696E 		.ascii	"__int32_t\000"
+ 941      7433325F 
+ 941      7400
+ 942              	.LASF21:
+ 943 0028 64656C74 		.ascii	"delta\000"
+ 943      6100
+ 944              	.LASF3:
+ 945 002e 73686F72 		.ascii	"short unsigned int\000"
+ 945      7420756E 
+ 945      7369676E 
+ 945      65642069 
+ 945      6E7400
+ 946              	.LASF25:
+ 947 0041 72756E6E 		.ascii	"running_avg_vel\000"
+ 947      696E675F 
+ 947      6176675F 
+ 947      76656C00 
+ 948              	.LASF27:
+ 949 0051 77656967 		.ascii	"weight\000"
+ 949      687400
+ 950              	.LASF30:
+ 951 0058 51756164 		.ascii	"QuadDec_1_GetCounter\000"
+ 951      4465635F 
+ 951      315F4765 
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 19
+
+
+ 951      74436F75 
+ 951      6E746572 
+ 952              	.LASF10:
+ 953 006d 696E7433 		.ascii	"int32_t\000"
+ 953      325F7400 
+ 954              	.LASF28:
+ 955 0075 55534246 		.ascii	"USBFS_1_LoadInEP\000"
+ 955      535F315F 
+ 955      4C6F6164 
+ 955      496E4550 
+ 955      00
+ 956              	.LASF15:
+ 957 0086 666C6F61 		.ascii	"float\000"
+ 957      7400
+ 958              	.LASF34:
+ 959 008c 433A5C55 		.ascii	"C:\\Users\\Keshuai\\Documents\\PSoC Creator\\Worksp"
+ 959      73657273 
+ 959      5C4B6573 
+ 959      68756169 
+ 959      5C446F63 
+ 960 00ba 61636530 		.ascii	"ace01\\n00b.cydsn\000"
+ 960      315C6E30 
+ 960      30622E63 
+ 960      7964736E 
+ 960      00
+ 961              	.LASF1:
+ 962 00cb 756E7369 		.ascii	"unsigned char\000"
+ 962      676E6564 
+ 962      20636861 
+ 962      7200
+ 963              	.LASF5:
+ 964 00d9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 964      20756E73 
+ 964      69676E65 
+ 964      6420696E 
+ 964      7400
+ 965              	.LASF14:
+ 966 00eb 696E7433 		.ascii	"int32\000"
+ 966      3200
+ 967              	.LASF26:
+ 968 00f1 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 968      52784275 
+ 968      66666572 
+ 968      00
+ 969              	.LASF31:
+ 970 00fe 55534246 		.ascii	"USBFS_1_GetConfiguration\000"
+ 970      535F315F 
+ 970      47657443 
+ 970      6F6E6669 
+ 970      67757261 
+ 971              	.LASF16:
+ 972 0117 646F7562 		.ascii	"double\000"
+ 972      6C6500
+ 973              	.LASF35:
+ 974 011e 6D61696E 		.ascii	"main\000"
+ 974      00
+ 975              	.LASF12:
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 20
+
+
+ 976 0123 75696E74 		.ascii	"uint16\000"
+ 976      313600
+ 977              	.LASF13:
+ 978 012a 696E7438 		.ascii	"int8\000"
+ 978      00
+ 979              	.LASF32:
+ 980 012f 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 980      4320342E 
+ 980      392E3320 
+ 980      32303135 
+ 980      30333033 
+ 981 0162 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 981      20726576 
+ 981      6973696F 
+ 981      6E203232 
+ 981      31323230 
+ 982 0195 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 982      66756E63 
+ 982      74696F6E 
+ 982      2D736563 
+ 982      74696F6E 
+ 983              	.LASF8:
+ 984 01bd 756E7369 		.ascii	"unsigned int\000"
+ 984      676E6564 
+ 984      20696E74 
+ 984      00
+ 985              	.LASF7:
+ 986 01ca 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 986      206C6F6E 
+ 986      6720756E 
+ 986      7369676E 
+ 986      65642069 
+ 987              	.LASF18:
+ 988 01e1 73697A65 		.ascii	"sizetype\000"
+ 988      74797065 
+ 988      00
+ 989              	.LASF36:
+ 990 01ea 55534246 		.ascii	"USBFS_1_GetEPAckState\000"
+ 990      535F315F 
+ 990      47657445 
+ 990      5041636B 
+ 990      53746174 
+ 991              	.LASF6:
+ 992 0200 6C6F6E67 		.ascii	"long long int\000"
+ 992      206C6F6E 
+ 992      6720696E 
+ 992      7400
+ 993              	.LASF33:
+ 994 020e 6D61696E 		.ascii	"main.c\000"
+ 994      2E6300
+ 995              	.LASF17:
+ 996 0215 63686172 		.ascii	"char\000"
+ 996      00
+ 997              	.LASF23:
+ 998 021a 6C617374 		.ascii	"last_count\000"
+ 998      5F636F75 
+ 998      6E7400
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\cckYIb6a.s 			page 21
+
+
+ 999              	.LASF20:
+ 1000 0225 636F756E 		.ascii	"count\000"
+ 1000      7400
+ 1001              	.LASF2:
+ 1002 022b 73686F72 		.ascii	"short int\000"
+ 1002      7420696E 
+ 1002      7400
+ 1003              	.LASF11:
+ 1004 0235 75696E74 		.ascii	"uint8\000"
+ 1004      3800
+ 1005              	.LASF24:
+ 1006 023b 636C6963 		.ascii	"clicked\000"
+ 1006      6B656400 
+ 1007              	.LASF4:
+ 1008 0243 6C6F6E67 		.ascii	"long int\000"
+ 1008      20696E74 
+ 1008      00
+ 1009              	.LASF19:
+ 1010 024c 6C6F6E67 		.ascii	"long double\000"
+ 1010      20646F75 
+ 1010      626C6500 
+ 1011              	.LASF0:
+ 1012 0258 7369676E 		.ascii	"signed char\000"
+ 1012      65642063 
+ 1012      68617200 
+ 1013              	.LASF22:
+ 1014 0264 4D6F7573 		.ascii	"Mouse_Data\000"
+ 1014      655F4461 
+ 1014      746100
+ 1015              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,86 @@
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/CortexM3/ARM_GCC_493/Debug/main.o : C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Clock_1.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/CyDmac.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/CyFlash.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/CyLib.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/CySpc.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Pin_1.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Pin_1_aliases.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Pin_2.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Pin_2_aliases.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/QuadDec_1.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/QuadDec_1_Cnt16.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/QuadDec_1_PVT.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/QuadDec_1_isr.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_Dm.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_Dm_aliases.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_Dp.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_Dp_aliases.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_audio.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_cdc.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_cydmac.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_hid.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_midi.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_msc.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_pvt.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cmsis_armcc.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cmsis_gcc.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/core_cm3.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/core_cmFunc.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/core_cmInstr.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cyPm.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cydevice.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cydevice_trm.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cydisabledsheets.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cyfitter.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cypins.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cytypes.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/project.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/cyapicallbacks.h C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/main.c 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Clock_1.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Pin_1.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Pin_1_aliases.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Pin_2.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/Pin_2_aliases.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/QuadDec_1.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/QuadDec_1_Cnt16.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/QuadDec_1_PVT.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/QuadDec_1_isr.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_Dm.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_Dm_aliases.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_Dp.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_Dp_aliases.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_audio.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_cdc.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_cydmac.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_hid.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_midi.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_msc.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/USBFS_1_pvt.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/core_cmFunc.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/core_cmInstr.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/Generated_Source/PSoC5/project.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/cyapicallbacks.h : 
+
+C:/Users/Keshuai/Documents/PSoC\ Creator/Workspace01/n00b.cydsn/main.c : 
+

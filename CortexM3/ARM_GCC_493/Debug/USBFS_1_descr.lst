@@ -1,0 +1,1214 @@
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"USBFS_1_descr.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	USBFS_1_TABLE
+  19              		.global	USBFS_1_DEVICE0_TABLE
+  20              		.global	USBFS_1_DEVICE0_CONFIGURATION0_TABLE
+  21              		.global	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+  22              		.global	USBFS_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+  23              		.global	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE
+  24              		.global	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE
+  25              		.global	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_TABLE
+  26              		.comm	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_BUF,4,4
+  27              		.comm	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_SCB,4,4
+  28              		.global	USBFS_1_HIDREPORT_DESCRIPTOR1
+  29              		.global	USBFS_1_STRING_DESCRIPTORS
+  30              		.global	USBFS_1_DEVICE0_CONFIGURATION0_DESCR
+  31              		.global	USBFS_1_DEVICE0_DESCR
+  32              		.section	.rodata
+  33              		.align	2
+  34              		.type	USBFS_1_TABLE, %object
+  35              		.size	USBFS_1_TABLE, 8
+  36              	USBFS_1_TABLE:
+  37 0000 01       		.byte	1
+  38 0001 000000   		.space	3
+  39 0004 00000000 		.word	USBFS_1_DEVICE0_TABLE
+  40              		.type	USBFS_1_DEVICE0_TABLE, %object
+  41              		.size	USBFS_1_DEVICE0_TABLE, 24
+  42              	USBFS_1_DEVICE0_TABLE:
+  43 0008 01       		.byte	1
+  44 0009 000000   		.space	3
+  45 000c 00000000 		.word	USBFS_1_DEVICE0_DESCR
+  46 0010 00       		.byte	0
+  47 0011 000000   		.space	3
+  48 0014 00000000 		.word	0
+  49 0018 01       		.byte	1
+  50 0019 000000   		.space	3
+  51 001c 00000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_TABLE
+  52              		.type	USBFS_1_DEVICE0_CONFIGURATION0_TABLE, %object
+  53              		.size	USBFS_1_DEVICE0_CONFIGURATION0_TABLE, 32
+  54              	USBFS_1_DEVICE0_CONFIGURATION0_TABLE:
+  55 0020 01       		.byte	1
+  56 0021 000000   		.space	3
+  57 0024 00000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_DESCR
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 2
+
+
+  58 0028 01       		.byte	1
+  59 0029 000000   		.space	3
+  60 002c 00000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+  61 0030 01       		.byte	1
+  62 0031 000000   		.space	3
+  63 0034 00000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE
+  64 0038 00       		.byte	0
+  65 0039 000000   		.space	3
+  66 003c 00000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+  67              		.type	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS, %object
+  68              		.size	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS, 1
+  69              	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS:
+  70 0040 03       		.byte	3
+  71 0041 000000   		.space	3
+  72              		.type	USBFS_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE, %object
+  73              		.size	USBFS_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE, 8
+  74              	USBFS_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE:
+  75 0044 00       		.byte	0
+  76 0045 00       		.byte	0
+  77 0046 81       		.byte	-127
+  78 0047 03       		.byte	3
+  79 0048 0800     		.short	8
+  80 004a 03       		.byte	3
+  81 004b 00       		.space	1
+  82              		.type	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE, %object
+  83              		.size	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE, 8
+  84              	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE:
+  85 004c 01       		.byte	1
+  86 004d 000000   		.space	3
+  87 0050 00000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE
+  88              		.type	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE, %object
+  89              		.size	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE, 40
+  90              	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE:
+  91 0054 00       		.byte	0
+  92 0055 000000   		.space	3
+  93 0058 00000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_TABLE
+  94 005c 00       		.byte	0
+  95 005d 000000   		.space	3
+  96 0060 00000000 		.word	0
+  97 0064 00       		.byte	0
+  98 0065 000000   		.space	3
+  99 0068 00000000 		.word	0
+ 100 006c 01       		.byte	1
+ 101 006d 000000   		.space	3
+ 102 0070 00000000 		.word	USBFS_1_HIDREPORT_DESCRIPTOR1
+ 103 0074 01       		.byte	1
+ 104 0075 000000   		.space	3
+ 105 0078 12000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_DESCR+18
+ 106              		.type	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_TABLE, %object
+ 107              		.size	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_TABLE, 12
+ 108              	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_TABLE:
+ 109 007c 0400     		.short	4
+ 110 007e 0000     		.space	2
+ 111 0080 00000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_BUF
+ 112 0084 00000000 		.word	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_SCB
+ 113              		.type	USBFS_1_HIDREPORT_DESCRIPTOR1, %object
+ 114              		.size	USBFS_1_HIDREPORT_DESCRIPTOR1, 54
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 3
+
+
+ 115              	USBFS_1_HIDREPORT_DESCRIPTOR1:
+ 116 0088 32       		.byte	50
+ 117 0089 00       		.byte	0
+ 118 008a 05       		.byte	5
+ 119 008b 01       		.byte	1
+ 120 008c 09       		.byte	9
+ 121 008d 02       		.byte	2
+ 122 008e A1       		.byte	-95
+ 123 008f 01       		.byte	1
+ 124 0090 09       		.byte	9
+ 125 0091 01       		.byte	1
+ 126 0092 A1       		.byte	-95
+ 127 0093 00       		.byte	0
+ 128 0094 05       		.byte	5
+ 129 0095 09       		.byte	9
+ 130 0096 19       		.byte	25
+ 131 0097 01       		.byte	1
+ 132 0098 29       		.byte	41
+ 133 0099 03       		.byte	3
+ 134 009a 15       		.byte	21
+ 135 009b 00       		.byte	0
+ 136 009c 25       		.byte	37
+ 137 009d 01       		.byte	1
+ 138 009e 95       		.byte	-107
+ 139 009f 03       		.byte	3
+ 140 00a0 75       		.byte	117
+ 141 00a1 01       		.byte	1
+ 142 00a2 81       		.byte	-127
+ 143 00a3 02       		.byte	2
+ 144 00a4 95       		.byte	-107
+ 145 00a5 01       		.byte	1
+ 146 00a6 75       		.byte	117
+ 147 00a7 05       		.byte	5
+ 148 00a8 81       		.byte	-127
+ 149 00a9 01       		.byte	1
+ 150 00aa 05       		.byte	5
+ 151 00ab 01       		.byte	1
+ 152 00ac 09       		.byte	9
+ 153 00ad 30       		.byte	48
+ 154 00ae 09       		.byte	9
+ 155 00af 31       		.byte	49
+ 156 00b0 15       		.byte	21
+ 157 00b1 81       		.byte	-127
+ 158 00b2 25       		.byte	37
+ 159 00b3 7F       		.byte	127
+ 160 00b4 75       		.byte	117
+ 161 00b5 08       		.byte	8
+ 162 00b6 95       		.byte	-107
+ 163 00b7 02       		.byte	2
+ 164 00b8 81       		.byte	-127
+ 165 00b9 06       		.byte	6
+ 166 00ba C0       		.byte	-64
+ 167 00bb C0       		.byte	-64
+ 168 00bc 00       		.byte	0
+ 169 00bd 00       		.byte	0
+ 170 00be 0000     		.space	2
+ 171              		.type	USBFS_1_STRING_DESCRIPTORS, %object
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 4
+
+
+ 172              		.size	USBFS_1_STRING_DESCRIPTORS, 29
+ 173              	USBFS_1_STRING_DESCRIPTORS:
+ 174 00c0 04       		.byte	4
+ 175 00c1 03       		.byte	3
+ 176 00c2 09       		.byte	9
+ 177 00c3 04       		.byte	4
+ 178 00c4 0E       		.byte	14
+ 179 00c5 03       		.byte	3
+ 180 00c6 43       		.byte	67
+ 181 00c7 00       		.byte	0
+ 182 00c8 6F       		.byte	111
+ 183 00c9 00       		.byte	0
+ 184 00ca 73       		.byte	115
+ 185 00cb 00       		.byte	0
+ 186 00cc 69       		.byte	105
+ 187 00cd 00       		.byte	0
+ 188 00ce 6E       		.byte	110
+ 189 00cf 00       		.byte	0
+ 190 00d0 65       		.byte	101
+ 191 00d1 00       		.byte	0
+ 192 00d2 0A       		.byte	10
+ 193 00d3 03       		.byte	3
+ 194 00d4 6E       		.byte	110
+ 195 00d5 00       		.byte	0
+ 196 00d6 30       		.byte	48
+ 197 00d7 00       		.byte	0
+ 198 00d8 30       		.byte	48
+ 199 00d9 00       		.byte	0
+ 200 00da 62       		.byte	98
+ 201 00db 00       		.byte	0
+ 202 00dc 00       		.byte	0
+ 203 00dd 000000   		.space	3
+ 204              		.type	USBFS_1_DEVICE0_CONFIGURATION0_DESCR, %object
+ 205              		.size	USBFS_1_DEVICE0_CONFIGURATION0_DESCR, 34
+ 206              	USBFS_1_DEVICE0_CONFIGURATION0_DESCR:
+ 207 00e0 09       		.byte	9
+ 208 00e1 02       		.byte	2
+ 209 00e2 22       		.byte	34
+ 210 00e3 00       		.byte	0
+ 211 00e4 01       		.byte	1
+ 212 00e5 01       		.byte	1
+ 213 00e6 00       		.byte	0
+ 214 00e7 80       		.byte	-128
+ 215 00e8 19       		.byte	25
+ 216 00e9 09       		.byte	9
+ 217 00ea 04       		.byte	4
+ 218 00eb 00       		.byte	0
+ 219 00ec 00       		.byte	0
+ 220 00ed 01       		.byte	1
+ 221 00ee 03       		.byte	3
+ 222 00ef 00       		.byte	0
+ 223 00f0 00       		.byte	0
+ 224 00f1 00       		.byte	0
+ 225 00f2 09       		.byte	9
+ 226 00f3 21       		.byte	33
+ 227 00f4 11       		.byte	17
+ 228 00f5 01       		.byte	1
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 5
+
+
+ 229 00f6 00       		.byte	0
+ 230 00f7 01       		.byte	1
+ 231 00f8 22       		.byte	34
+ 232 00f9 32       		.byte	50
+ 233 00fa 00       		.byte	0
+ 234 00fb 07       		.byte	7
+ 235 00fc 05       		.byte	5
+ 236 00fd 81       		.byte	-127
+ 237 00fe 03       		.byte	3
+ 238 00ff 08       		.byte	8
+ 239 0100 00       		.byte	0
+ 240 0101 0A       		.byte	10
+ 241 0102 0000     		.space	2
+ 242              		.type	USBFS_1_DEVICE0_DESCR, %object
+ 243              		.size	USBFS_1_DEVICE0_DESCR, 18
+ 244              	USBFS_1_DEVICE0_DESCR:
+ 245 0104 12       		.byte	18
+ 246 0105 01       		.byte	1
+ 247 0106 00       		.byte	0
+ 248 0107 02       		.byte	2
+ 249 0108 00       		.byte	0
+ 250 0109 00       		.byte	0
+ 251 010a 00       		.byte	0
+ 252 010b 08       		.byte	8
+ 253 010c B4       		.byte	-76
+ 254 010d 04       		.byte	4
+ 255 010e 51       		.byte	81
+ 256 010f 80       		.byte	-128
+ 257 0110 00       		.byte	0
+ 258 0111 00       		.byte	0
+ 259 0112 01       		.byte	1
+ 260 0113 02       		.byte	2
+ 261 0114 00       		.byte	0
+ 262 0115 01       		.byte	1
+ 263 0116 0000     		.text
+ 264              	.Letext0:
+ 265              		.file 1 "Generated_Source\\PSoC5\\cytypes.h"
+ 266              		.file 2 "Generated_Source\\PSoC5\\USBFS_1.h"
+ 267              		.file 3 "Generated_Source\\PSoC5\\USBFS_1_descr.c"
+ 268              		.section	.debug_info,"",%progbits
+ 269              	.Ldebug_info0:
+ 270 0000 80030000 		.4byte	0x380
+ 271 0004 0400     		.2byte	0x4
+ 272 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 273 000a 04       		.byte	0x4
+ 274 000b 01       		.uleb128 0x1
+ 275 000c 45020000 		.4byte	.LASF45
+ 276 0010 01       		.byte	0x1
+ 277 0011 57030000 		.4byte	.LASF46
+ 278 0015 3B010000 		.4byte	.LASF47
+ 279 0019 00000000 		.4byte	.Ldebug_line0
+ 280 001d 02       		.uleb128 0x2
+ 281 001e 01       		.byte	0x1
+ 282 001f 06       		.byte	0x6
+ 283 0020 2F040000 		.4byte	.LASF0
+ 284 0024 02       		.uleb128 0x2
+ 285 0025 01       		.byte	0x1
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 6
+
+
+ 286 0026 08       		.byte	0x8
+ 287 0027 88010000 		.4byte	.LASF1
+ 288 002b 02       		.uleb128 0x2
+ 289 002c 02       		.byte	0x2
+ 290 002d 05       		.byte	0x5
+ 291 002e B9030000 		.4byte	.LASF2
+ 292 0032 02       		.uleb128 0x2
+ 293 0033 02       		.byte	0x2
+ 294 0034 07       		.byte	0x7
+ 295 0035 62000000 		.4byte	.LASF3
+ 296 0039 02       		.uleb128 0x2
+ 297 003a 04       		.byte	0x4
+ 298 003b 05       		.byte	0x5
+ 299 003c 59000000 		.4byte	.LASF4
+ 300 0040 02       		.uleb128 0x2
+ 301 0041 04       		.byte	0x4
+ 302 0042 07       		.byte	0x7
+ 303 0043 A1010000 		.4byte	.LASF5
+ 304 0047 02       		.uleb128 0x2
+ 305 0048 08       		.byte	0x8
+ 306 0049 05       		.byte	0x5
+ 307 004a 49030000 		.4byte	.LASF6
+ 308 004e 02       		.uleb128 0x2
+ 309 004f 08       		.byte	0x8
+ 310 0050 07       		.byte	0x7
+ 311 0051 04030000 		.4byte	.LASF7
+ 312 0055 03       		.uleb128 0x3
+ 313 0056 04       		.byte	0x4
+ 314 0057 05       		.byte	0x5
+ 315 0058 696E7400 		.ascii	"int\000"
+ 316 005c 02       		.uleb128 0x2
+ 317 005d 04       		.byte	0x4
+ 318 005e 07       		.byte	0x7
+ 319 005f D3020000 		.4byte	.LASF8
+ 320 0063 04       		.uleb128 0x4
+ 321 0064 C3030000 		.4byte	.LASF9
+ 322 0068 01       		.byte	0x1
+ 323 0069 9201     		.2byte	0x192
+ 324 006b 24000000 		.4byte	0x24
+ 325 006f 04       		.uleb128 0x4
+ 326 0070 0D020000 		.4byte	.LASF10
+ 327 0074 01       		.byte	0x1
+ 328 0075 9301     		.2byte	0x193
+ 329 0077 32000000 		.4byte	0x32
+ 330 007b 02       		.uleb128 0x2
+ 331 007c 04       		.byte	0x4
+ 332 007d 04       		.byte	0x4
+ 333 007e F6000000 		.4byte	.LASF11
+ 334 0082 02       		.uleb128 0x2
+ 335 0083 08       		.byte	0x8
+ 336 0084 04       		.byte	0x4
+ 337 0085 06020000 		.4byte	.LASF12
+ 338 0089 02       		.uleb128 0x2
+ 339 008a 01       		.byte	0x1
+ 340 008b 08       		.byte	0x8
+ 341 008c 1D040000 		.4byte	.LASF13
+ 342 0090 05       		.uleb128 0x5
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 7
+
+
+ 343 0091 63000000 		.4byte	0x63
+ 344 0095 02       		.uleb128 0x2
+ 345 0096 04       		.byte	0x4
+ 346 0097 07       		.byte	0x7
+ 347 0098 22030000 		.4byte	.LASF14
+ 348 009c 06       		.uleb128 0x6
+ 349 009d 08       		.byte	0x8
+ 350 009e 02       		.byte	0x2
+ 351 009f 9D       		.byte	0x9d
+ 352 00a0 ED000000 		.4byte	0xed
+ 353 00a4 07       		.uleb128 0x7
+ 354 00a5 C9030000 		.4byte	.LASF15
+ 355 00a9 02       		.byte	0x2
+ 356 00aa 9F       		.byte	0x9f
+ 357 00ab 63000000 		.4byte	0x63
+ 358 00af 00       		.byte	0
+ 359 00b0 07       		.uleb128 0x7
+ 360 00b1 EB000000 		.4byte	.LASF16
+ 361 00b5 02       		.byte	0x2
+ 362 00b6 A0       		.byte	0xa0
+ 363 00b7 63000000 		.4byte	0x63
+ 364 00bb 01       		.byte	0x1
+ 365 00bc 07       		.uleb128 0x7
+ 366 00bd B3010000 		.4byte	.LASF17
+ 367 00c1 02       		.byte	0x2
+ 368 00c2 A1       		.byte	0xa1
+ 369 00c3 63000000 		.4byte	0x63
+ 370 00c7 02       		.byte	0x2
+ 371 00c8 07       		.uleb128 0x7
+ 372 00c9 96010000 		.4byte	.LASF18
+ 373 00cd 02       		.byte	0x2
+ 374 00ce A2       		.byte	0xa2
+ 375 00cf 63000000 		.4byte	0x63
+ 376 00d3 03       		.byte	0x3
+ 377 00d4 07       		.uleb128 0x7
+ 378 00d5 AE030000 		.4byte	.LASF19
+ 379 00d9 02       		.byte	0x2
+ 380 00da A3       		.byte	0xa3
+ 381 00db 6F000000 		.4byte	0x6f
+ 382 00df 04       		.byte	0x4
+ 383 00e0 07       		.uleb128 0x7
+ 384 00e1 A7040000 		.4byte	.LASF20
+ 385 00e5 02       		.byte	0x2
+ 386 00e6 A4       		.byte	0xa4
+ 387 00e7 63000000 		.4byte	0x63
+ 388 00eb 06       		.byte	0x6
+ 389 00ec 00       		.byte	0
+ 390 00ed 08       		.uleb128 0x8
+ 391 00ee EA010000 		.4byte	.LASF21
+ 392 00f2 02       		.byte	0x2
+ 393 00f3 A5       		.byte	0xa5
+ 394 00f4 9C000000 		.4byte	0x9c
+ 395 00f8 06       		.uleb128 0x6
+ 396 00f9 04       		.byte	0x4
+ 397 00fa 02       		.byte	0x2
+ 398 00fb A7       		.byte	0xa7
+ 399 00fc 19010000 		.4byte	0x119
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 8
+
+
+ 400 0100 07       		.uleb128 0x7
+ 401 0101 9A000000 		.4byte	.LASF22
+ 402 0105 02       		.byte	0x2
+ 403 0106 A9       		.byte	0xa9
+ 404 0107 63000000 		.4byte	0x63
+ 405 010b 00       		.byte	0
+ 406 010c 07       		.uleb128 0x7
+ 407 010d 7B040000 		.4byte	.LASF23
+ 408 0111 02       		.byte	0x2
+ 409 0112 AA       		.byte	0xaa
+ 410 0113 6F000000 		.4byte	0x6f
+ 411 0117 02       		.byte	0x2
+ 412 0118 00       		.byte	0
+ 413 0119 08       		.uleb128 0x8
+ 414 011a B8010000 		.4byte	.LASF24
+ 415 011e 02       		.byte	0x2
+ 416 011f AB       		.byte	0xab
+ 417 0120 F8000000 		.4byte	0xf8
+ 418 0124 06       		.uleb128 0x6
+ 419 0125 0C       		.byte	0xc
+ 420 0126 02       		.byte	0x2
+ 421 0127 AD       		.byte	0xad
+ 422 0128 51010000 		.4byte	0x151
+ 423 012c 07       		.uleb128 0x7
+ 424 012d 53000000 		.4byte	.LASF25
+ 425 0131 02       		.byte	0x2
+ 426 0132 AF       		.byte	0xaf
+ 427 0133 6F000000 		.4byte	0x6f
+ 428 0137 00       		.byte	0
+ 429 0138 07       		.uleb128 0x7
+ 430 0139 E5000000 		.4byte	.LASF26
+ 431 013d 02       		.byte	0x2
+ 432 013e B0       		.byte	0xb0
+ 433 013f 51010000 		.4byte	0x151
+ 434 0143 04       		.byte	0x4
+ 435 0144 07       		.uleb128 0x7
+ 436 0145 00000000 		.4byte	.LASF27
+ 437 0149 02       		.byte	0x2
+ 438 014a B1       		.byte	0xb1
+ 439 014b 57010000 		.4byte	0x157
+ 440 014f 08       		.byte	0x8
+ 441 0150 00       		.byte	0
+ 442 0151 09       		.uleb128 0x9
+ 443 0152 04       		.byte	0x4
+ 444 0153 90000000 		.4byte	0x90
+ 445 0157 09       		.uleb128 0x9
+ 446 0158 04       		.byte	0x4
+ 447 0159 19010000 		.4byte	0x119
+ 448 015d 08       		.uleb128 0x8
+ 449 015e 22040000 		.4byte	.LASF28
+ 450 0162 02       		.byte	0x2
+ 451 0163 B2       		.byte	0xb2
+ 452 0164 24010000 		.4byte	0x124
+ 453 0168 06       		.uleb128 0x6
+ 454 0169 08       		.byte	0x8
+ 455 016a 02       		.byte	0x2
+ 456 016b B4       		.byte	0xb4
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 9
+
+
+ 457 016c 87010000 		.4byte	0x187
+ 458 0170 0A       		.uleb128 0xa
+ 459 0171 6300     		.ascii	"c\000"
+ 460 0173 02       		.byte	0x2
+ 461 0174 B6       		.byte	0xb6
+ 462 0175 63000000 		.4byte	0x63
+ 463 0179 00       		.byte	0
+ 464 017a 07       		.uleb128 0x7
+ 465 017b 1B030000 		.4byte	.LASF29
+ 466 017f 02       		.byte	0x2
+ 467 0180 B7       		.byte	0xb7
+ 468 0181 87010000 		.4byte	0x187
+ 469 0185 04       		.byte	0x4
+ 470 0186 00       		.byte	0
+ 471 0187 09       		.uleb128 0x9
+ 472 0188 04       		.byte	0x4
+ 473 0189 8D010000 		.4byte	0x18d
+ 474 018d 0B       		.uleb128 0xb
+ 475 018e 08       		.uleb128 0x8
+ 476 018f E0020000 		.4byte	.LASF30
+ 477 0193 02       		.byte	0x2
+ 478 0194 B8       		.byte	0xb8
+ 479 0195 68010000 		.4byte	0x168
+ 480 0199 0C       		.uleb128 0xc
+ 481 019a 63000000 		.4byte	0x63
+ 482 019e A9010000 		.4byte	0x1a9
+ 483 01a2 0D       		.uleb128 0xd
+ 484 01a3 95000000 		.4byte	0x95
+ 485 01a7 11       		.byte	0x11
+ 486 01a8 00       		.byte	0
+ 487 01a9 0E       		.uleb128 0xe
+ 488 01aa EE020000 		.4byte	.LASF31
+ 489 01ae 03       		.byte	0x3
+ 490 01af 24       		.byte	0x24
+ 491 01b0 BA010000 		.4byte	0x1ba
+ 492 01b4 05       		.uleb128 0x5
+ 493 01b5 03       		.byte	0x3
+ 494 01b6 00000000 		.4byte	USBFS_1_DEVICE0_DESCR
+ 495 01ba 0F       		.uleb128 0xf
+ 496 01bb 99010000 		.4byte	0x199
+ 497 01bf 0C       		.uleb128 0xc
+ 498 01c0 63000000 		.4byte	0x63
+ 499 01c4 CF010000 		.4byte	0x1cf
+ 500 01c8 0D       		.uleb128 0xd
+ 501 01c9 95000000 		.4byte	0x95
+ 502 01cd 21       		.byte	0x21
+ 503 01ce 00       		.byte	0
+ 504 01cf 0E       		.uleb128 0xe
+ 505 01d0 75000000 		.4byte	.LASF32
+ 506 01d4 03       		.byte	0x3
+ 507 01d5 37       		.byte	0x37
+ 508 01d6 E0010000 		.4byte	0x1e0
+ 509 01da 05       		.uleb128 0x5
+ 510 01db 03       		.byte	0x3
+ 511 01dc 00000000 		.4byte	USBFS_1_DEVICE0_CONFIGURATION0_DESCR
+ 512 01e0 0F       		.uleb128 0xf
+ 513 01e1 BF010000 		.4byte	0x1bf
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 10
+
+
+ 514 01e5 0C       		.uleb128 0xc
+ 515 01e6 8E010000 		.4byte	0x18e
+ 516 01ea F5010000 		.4byte	0x1f5
+ 517 01ee 0D       		.uleb128 0xd
+ 518 01ef 95000000 		.4byte	0x95
+ 519 01f3 00       		.byte	0
+ 520 01f4 00       		.byte	0
+ 521 01f5 0E       		.uleb128 0xe
+ 522 01f6 7E030000 		.4byte	.LASF33
+ 523 01fa 03       		.byte	0x3
+ 524 01fb C6       		.byte	0xc6
+ 525 01fc 06020000 		.4byte	0x206
+ 526 0200 05       		.uleb128 0x5
+ 527 0201 03       		.byte	0x3
+ 528 0202 00000000 		.4byte	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE
+ 529 0206 0F       		.uleb128 0xf
+ 530 0207 E5010000 		.4byte	0x1e5
+ 531 020b 0C       		.uleb128 0xc
+ 532 020c ED000000 		.4byte	0xed
+ 533 0210 1B020000 		.4byte	0x21b
+ 534 0214 0D       		.uleb128 0xd
+ 535 0215 95000000 		.4byte	0x95
+ 536 0219 00       		.byte	0
+ 537 021a 00       		.byte	0
+ 538 021b 0E       		.uleb128 0xe
+ 539 021c 14020000 		.4byte	.LASF34
+ 540 0220 03       		.byte	0x3
+ 541 0221 D1       		.byte	0xd1
+ 542 0222 2C020000 		.4byte	0x22c
+ 543 0226 05       		.uleb128 0x5
+ 544 0227 03       		.byte	0x3
+ 545 0228 00000000 		.4byte	USBFS_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+ 546 022c 0F       		.uleb128 0xf
+ 547 022d 0B020000 		.4byte	0x20b
+ 548 0231 0C       		.uleb128 0xc
+ 549 0232 63000000 		.4byte	0x63
+ 550 0236 41020000 		.4byte	0x241
+ 551 023a 0D       		.uleb128 0xd
+ 552 023b 95000000 		.4byte	0x95
+ 553 023f 00       		.byte	0
+ 554 0240 00       		.byte	0
+ 555 0241 0E       		.uleb128 0xe
+ 556 0242 EE030000 		.4byte	.LASF35
+ 557 0246 03       		.byte	0x3
+ 558 0247 D5       		.byte	0xd5
+ 559 0248 52020000 		.4byte	0x252
+ 560 024c 05       		.uleb128 0x5
+ 561 024d 03       		.byte	0x3
+ 562 024e 00000000 		.4byte	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+ 563 0252 0F       		.uleb128 0xf
+ 564 0253 31020000 		.4byte	0x231
+ 565 0257 0C       		.uleb128 0xc
+ 566 0258 8E010000 		.4byte	0x18e
+ 567 025c 67020000 		.4byte	0x267
+ 568 0260 0D       		.uleb128 0xd
+ 569 0261 95000000 		.4byte	0x95
+ 570 0265 03       		.byte	0x3
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 11
+
+
+ 571 0266 00       		.byte	0
+ 572 0267 0E       		.uleb128 0xe
+ 573 0268 82040000 		.4byte	.LASF36
+ 574 026c 03       		.byte	0x3
+ 575 026d DD       		.byte	0xdd
+ 576 026e 78020000 		.4byte	0x278
+ 577 0272 05       		.uleb128 0x5
+ 578 0273 03       		.byte	0x3
+ 579 0274 00000000 		.4byte	USBFS_1_DEVICE0_CONFIGURATION0_TABLE
+ 580 0278 0F       		.uleb128 0xf
+ 581 0279 57020000 		.4byte	0x257
+ 582 027d 0C       		.uleb128 0xc
+ 583 027e 8E010000 		.4byte	0x18e
+ 584 0282 8D020000 		.4byte	0x28d
+ 585 0286 0D       		.uleb128 0xd
+ 586 0287 95000000 		.4byte	0x95
+ 587 028b 02       		.byte	0x2
+ 588 028c 00       		.byte	0
+ 589 028d 0E       		.uleb128 0xe
+ 590 028e D4010000 		.4byte	.LASF37
+ 591 0292 03       		.byte	0x3
+ 592 0293 E7       		.byte	0xe7
+ 593 0294 9E020000 		.4byte	0x29e
+ 594 0298 05       		.uleb128 0x5
+ 595 0299 03       		.byte	0x3
+ 596 029a 00000000 		.4byte	USBFS_1_DEVICE0_TABLE
+ 597 029e 0F       		.uleb128 0xf
+ 598 029f 7D020000 		.4byte	0x27d
+ 599 02a3 0E       		.uleb128 0xe
+ 600 02a4 7A010000 		.4byte	.LASF38
+ 601 02a8 03       		.byte	0x3
+ 602 02a9 EF       		.byte	0xef
+ 603 02aa B4020000 		.4byte	0x2b4
+ 604 02ae 05       		.uleb128 0x5
+ 605 02af 03       		.byte	0x3
+ 606 02b0 00000000 		.4byte	USBFS_1_TABLE
+ 607 02b4 0F       		.uleb128 0xf
+ 608 02b5 E5010000 		.4byte	0x1e5
+ 609 02b9 0C       		.uleb128 0xc
+ 610 02ba 63000000 		.4byte	0x63
+ 611 02be C9020000 		.4byte	0x2c9
+ 612 02c2 0D       		.uleb128 0xd
+ 613 02c3 95000000 		.4byte	0x95
+ 614 02c7 1C       		.byte	0x1c
+ 615 02c8 00       		.byte	0
+ 616 02c9 0E       		.uleb128 0xe
+ 617 02ca D3030000 		.4byte	.LASF39
+ 618 02ce 03       		.byte	0x3
+ 619 02cf 65       		.byte	0x65
+ 620 02d0 DA020000 		.4byte	0x2da
+ 621 02d4 05       		.uleb128 0x5
+ 622 02d5 03       		.byte	0x3
+ 623 02d6 00000000 		.4byte	USBFS_1_STRING_DESCRIPTORS
+ 624 02da 0F       		.uleb128 0xf
+ 625 02db B9020000 		.4byte	0x2b9
+ 626 02df 0E       		.uleb128 0xe
+ 627 02e0 A1000000 		.4byte	.LASF40
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 12
+
+
+ 628 02e4 03       		.byte	0x3
+ 629 02e5 A6       		.byte	0xa6
+ 630 02e6 19010000 		.4byte	0x119
+ 631 02ea 05       		.uleb128 0x5
+ 632 02eb 03       		.byte	0x3
+ 633 02ec 00000000 		.4byte	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_SCB
+ 634 02f0 0C       		.uleb128 0xc
+ 635 02f1 63000000 		.4byte	0x63
+ 636 02f5 00030000 		.4byte	0x300
+ 637 02f9 0D       		.uleb128 0xd
+ 638 02fa 95000000 		.4byte	0x95
+ 639 02fe 03       		.byte	0x3
+ 640 02ff 00       		.byte	0
+ 641 0300 0E       		.uleb128 0xe
+ 642 0301 3B040000 		.4byte	.LASF41
+ 643 0305 03       		.byte	0x3
+ 644 0306 A7       		.byte	0xa7
+ 645 0307 F0020000 		.4byte	0x2f0
+ 646 030b 05       		.uleb128 0x5
+ 647 030c 03       		.byte	0x3
+ 648 030d 00000000 		.4byte	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_BUF
+ 649 0311 0C       		.uleb128 0xc
+ 650 0312 63000000 		.4byte	0x63
+ 651 0316 21030000 		.4byte	0x321
+ 652 031a 0D       		.uleb128 0xd
+ 653 031b 95000000 		.4byte	0x95
+ 654 031f 35       		.byte	0x35
+ 655 0320 00       		.byte	0
+ 656 0321 0E       		.uleb128 0xe
+ 657 0322 2B030000 		.4byte	.LASF42
+ 658 0326 03       		.byte	0x3
+ 659 0327 81       		.byte	0x81
+ 660 0328 32030000 		.4byte	0x332
+ 661 032c 05       		.uleb128 0x5
+ 662 032d 03       		.byte	0x3
+ 663 032e 00000000 		.4byte	USBFS_1_HIDREPORT_DESCRIPTOR1
+ 664 0332 0F       		.uleb128 0xf
+ 665 0333 11030000 		.4byte	0x311
+ 666 0337 0C       		.uleb128 0xc
+ 667 0338 5D010000 		.4byte	0x15d
+ 668 033c 47030000 		.4byte	0x347
+ 669 0340 0D       		.uleb128 0xd
+ 670 0341 95000000 		.4byte	0x95
+ 671 0345 00       		.byte	0
+ 672 0346 00       		.byte	0
+ 673 0347 0E       		.uleb128 0xe
+ 674 0348 0D000000 		.4byte	.LASF43
+ 675 034c 03       		.byte	0x3
+ 676 034d AD       		.byte	0xad
+ 677 034e 58030000 		.4byte	0x358
+ 678 0352 05       		.uleb128 0x5
+ 679 0353 03       		.byte	0x3
+ 680 0354 00000000 		.4byte	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_IN_RPT_TABLE
+ 681 0358 0F       		.uleb128 0xf
+ 682 0359 37030000 		.4byte	0x337
+ 683 035d 0C       		.uleb128 0xc
+ 684 035e 8E010000 		.4byte	0x18e
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 13
+
+
+ 685 0362 6D030000 		.4byte	0x36d
+ 686 0366 0D       		.uleb128 0xd
+ 687 0367 95000000 		.4byte	0x95
+ 688 036b 04       		.byte	0x4
+ 689 036c 00       		.byte	0
+ 690 036d 0E       		.uleb128 0xe
+ 691 036e FC000000 		.4byte	.LASF44
+ 692 0372 03       		.byte	0x3
+ 693 0373 BA       		.byte	0xba
+ 694 0374 7E030000 		.4byte	0x37e
+ 695 0378 05       		.uleb128 0x5
+ 696 0379 03       		.byte	0x3
+ 697 037a 00000000 		.4byte	USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE0_HID_TABLE
+ 698 037e 0F       		.uleb128 0xf
+ 699 037f 5D030000 		.4byte	0x35d
+ 700 0383 00       		.byte	0
+ 701              		.section	.debug_abbrev,"",%progbits
+ 702              	.Ldebug_abbrev0:
+ 703 0000 01       		.uleb128 0x1
+ 704 0001 11       		.uleb128 0x11
+ 705 0002 01       		.byte	0x1
+ 706 0003 25       		.uleb128 0x25
+ 707 0004 0E       		.uleb128 0xe
+ 708 0005 13       		.uleb128 0x13
+ 709 0006 0B       		.uleb128 0xb
+ 710 0007 03       		.uleb128 0x3
+ 711 0008 0E       		.uleb128 0xe
+ 712 0009 1B       		.uleb128 0x1b
+ 713 000a 0E       		.uleb128 0xe
+ 714 000b 10       		.uleb128 0x10
+ 715 000c 17       		.uleb128 0x17
+ 716 000d 00       		.byte	0
+ 717 000e 00       		.byte	0
+ 718 000f 02       		.uleb128 0x2
+ 719 0010 24       		.uleb128 0x24
+ 720 0011 00       		.byte	0
+ 721 0012 0B       		.uleb128 0xb
+ 722 0013 0B       		.uleb128 0xb
+ 723 0014 3E       		.uleb128 0x3e
+ 724 0015 0B       		.uleb128 0xb
+ 725 0016 03       		.uleb128 0x3
+ 726 0017 0E       		.uleb128 0xe
+ 727 0018 00       		.byte	0
+ 728 0019 00       		.byte	0
+ 729 001a 03       		.uleb128 0x3
+ 730 001b 24       		.uleb128 0x24
+ 731 001c 00       		.byte	0
+ 732 001d 0B       		.uleb128 0xb
+ 733 001e 0B       		.uleb128 0xb
+ 734 001f 3E       		.uleb128 0x3e
+ 735 0020 0B       		.uleb128 0xb
+ 736 0021 03       		.uleb128 0x3
+ 737 0022 08       		.uleb128 0x8
+ 738 0023 00       		.byte	0
+ 739 0024 00       		.byte	0
+ 740 0025 04       		.uleb128 0x4
+ 741 0026 16       		.uleb128 0x16
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 14
+
+
+ 742 0027 00       		.byte	0
+ 743 0028 03       		.uleb128 0x3
+ 744 0029 0E       		.uleb128 0xe
+ 745 002a 3A       		.uleb128 0x3a
+ 746 002b 0B       		.uleb128 0xb
+ 747 002c 3B       		.uleb128 0x3b
+ 748 002d 05       		.uleb128 0x5
+ 749 002e 49       		.uleb128 0x49
+ 750 002f 13       		.uleb128 0x13
+ 751 0030 00       		.byte	0
+ 752 0031 00       		.byte	0
+ 753 0032 05       		.uleb128 0x5
+ 754 0033 35       		.uleb128 0x35
+ 755 0034 00       		.byte	0
+ 756 0035 49       		.uleb128 0x49
+ 757 0036 13       		.uleb128 0x13
+ 758 0037 00       		.byte	0
+ 759 0038 00       		.byte	0
+ 760 0039 06       		.uleb128 0x6
+ 761 003a 13       		.uleb128 0x13
+ 762 003b 01       		.byte	0x1
+ 763 003c 0B       		.uleb128 0xb
+ 764 003d 0B       		.uleb128 0xb
+ 765 003e 3A       		.uleb128 0x3a
+ 766 003f 0B       		.uleb128 0xb
+ 767 0040 3B       		.uleb128 0x3b
+ 768 0041 0B       		.uleb128 0xb
+ 769 0042 01       		.uleb128 0x1
+ 770 0043 13       		.uleb128 0x13
+ 771 0044 00       		.byte	0
+ 772 0045 00       		.byte	0
+ 773 0046 07       		.uleb128 0x7
+ 774 0047 0D       		.uleb128 0xd
+ 775 0048 00       		.byte	0
+ 776 0049 03       		.uleb128 0x3
+ 777 004a 0E       		.uleb128 0xe
+ 778 004b 3A       		.uleb128 0x3a
+ 779 004c 0B       		.uleb128 0xb
+ 780 004d 3B       		.uleb128 0x3b
+ 781 004e 0B       		.uleb128 0xb
+ 782 004f 49       		.uleb128 0x49
+ 783 0050 13       		.uleb128 0x13
+ 784 0051 38       		.uleb128 0x38
+ 785 0052 0B       		.uleb128 0xb
+ 786 0053 00       		.byte	0
+ 787 0054 00       		.byte	0
+ 788 0055 08       		.uleb128 0x8
+ 789 0056 16       		.uleb128 0x16
+ 790 0057 00       		.byte	0
+ 791 0058 03       		.uleb128 0x3
+ 792 0059 0E       		.uleb128 0xe
+ 793 005a 3A       		.uleb128 0x3a
+ 794 005b 0B       		.uleb128 0xb
+ 795 005c 3B       		.uleb128 0x3b
+ 796 005d 0B       		.uleb128 0xb
+ 797 005e 49       		.uleb128 0x49
+ 798 005f 13       		.uleb128 0x13
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 15
+
+
+ 799 0060 00       		.byte	0
+ 800 0061 00       		.byte	0
+ 801 0062 09       		.uleb128 0x9
+ 802 0063 0F       		.uleb128 0xf
+ 803 0064 00       		.byte	0
+ 804 0065 0B       		.uleb128 0xb
+ 805 0066 0B       		.uleb128 0xb
+ 806 0067 49       		.uleb128 0x49
+ 807 0068 13       		.uleb128 0x13
+ 808 0069 00       		.byte	0
+ 809 006a 00       		.byte	0
+ 810 006b 0A       		.uleb128 0xa
+ 811 006c 0D       		.uleb128 0xd
+ 812 006d 00       		.byte	0
+ 813 006e 03       		.uleb128 0x3
+ 814 006f 08       		.uleb128 0x8
+ 815 0070 3A       		.uleb128 0x3a
+ 816 0071 0B       		.uleb128 0xb
+ 817 0072 3B       		.uleb128 0x3b
+ 818 0073 0B       		.uleb128 0xb
+ 819 0074 49       		.uleb128 0x49
+ 820 0075 13       		.uleb128 0x13
+ 821 0076 38       		.uleb128 0x38
+ 822 0077 0B       		.uleb128 0xb
+ 823 0078 00       		.byte	0
+ 824 0079 00       		.byte	0
+ 825 007a 0B       		.uleb128 0xb
+ 826 007b 26       		.uleb128 0x26
+ 827 007c 00       		.byte	0
+ 828 007d 00       		.byte	0
+ 829 007e 00       		.byte	0
+ 830 007f 0C       		.uleb128 0xc
+ 831 0080 01       		.uleb128 0x1
+ 832 0081 01       		.byte	0x1
+ 833 0082 49       		.uleb128 0x49
+ 834 0083 13       		.uleb128 0x13
+ 835 0084 01       		.uleb128 0x1
+ 836 0085 13       		.uleb128 0x13
+ 837 0086 00       		.byte	0
+ 838 0087 00       		.byte	0
+ 839 0088 0D       		.uleb128 0xd
+ 840 0089 21       		.uleb128 0x21
+ 841 008a 00       		.byte	0
+ 842 008b 49       		.uleb128 0x49
+ 843 008c 13       		.uleb128 0x13
+ 844 008d 2F       		.uleb128 0x2f
+ 845 008e 0B       		.uleb128 0xb
+ 846 008f 00       		.byte	0
+ 847 0090 00       		.byte	0
+ 848 0091 0E       		.uleb128 0xe
+ 849 0092 34       		.uleb128 0x34
+ 850 0093 00       		.byte	0
+ 851 0094 03       		.uleb128 0x3
+ 852 0095 0E       		.uleb128 0xe
+ 853 0096 3A       		.uleb128 0x3a
+ 854 0097 0B       		.uleb128 0xb
+ 855 0098 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 16
+
+
+ 856 0099 0B       		.uleb128 0xb
+ 857 009a 49       		.uleb128 0x49
+ 858 009b 13       		.uleb128 0x13
+ 859 009c 3F       		.uleb128 0x3f
+ 860 009d 19       		.uleb128 0x19
+ 861 009e 02       		.uleb128 0x2
+ 862 009f 18       		.uleb128 0x18
+ 863 00a0 00       		.byte	0
+ 864 00a1 00       		.byte	0
+ 865 00a2 0F       		.uleb128 0xf
+ 866 00a3 26       		.uleb128 0x26
+ 867 00a4 00       		.byte	0
+ 868 00a5 49       		.uleb128 0x49
+ 869 00a6 13       		.uleb128 0x13
+ 870 00a7 00       		.byte	0
+ 871 00a8 00       		.byte	0
+ 872 00a9 00       		.byte	0
+ 873              		.section	.debug_aranges,"",%progbits
+ 874 0000 14000000 		.4byte	0x14
+ 875 0004 0200     		.2byte	0x2
+ 876 0006 00000000 		.4byte	.Ldebug_info0
+ 877 000a 04       		.byte	0x4
+ 878 000b 00       		.byte	0
+ 879 000c 0000     		.2byte	0
+ 880 000e 0000     		.2byte	0
+ 881 0010 00000000 		.4byte	0
+ 882 0014 00000000 		.4byte	0
+ 883              		.section	.debug_line,"",%progbits
+ 884              	.Ldebug_line0:
+ 885 0000 5D000000 		.section	.debug_str,"MS",%progbits,1
+ 885      02005700 
+ 885      00000201 
+ 885      FB0E0D00 
+ 885      01010101 
+ 886              	.LASF27:
+ 887 0000 70537461 		.ascii	"pStatusBlock\000"
+ 887      74757342 
+ 887      6C6F636B 
+ 887      00
+ 888              	.LASF43:
+ 889 000d 55534246 		.ascii	"USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE"
+ 889      535F315F 
+ 889      44455649 
+ 889      4345305F 
+ 889      434F4E46 
+ 890 0040 305F4849 		.ascii	"0_HID_IN_RPT_TABLE\000"
+ 890      445F494E 
+ 890      5F525054 
+ 890      5F544142 
+ 890      4C4500
+ 891              	.LASF25:
+ 892 0053 636F756E 		.ascii	"count\000"
+ 892      7400
+ 893              	.LASF4:
+ 894 0059 6C6F6E67 		.ascii	"long int\000"
+ 894      20696E74 
+ 894      00
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 17
+
+
+ 895              	.LASF3:
+ 896 0062 73686F72 		.ascii	"short unsigned int\000"
+ 896      7420756E 
+ 896      7369676E 
+ 896      65642069 
+ 896      6E7400
+ 897              	.LASF32:
+ 898 0075 55534246 		.ascii	"USBFS_1_DEVICE0_CONFIGURATION0_DESCR\000"
+ 898      535F315F 
+ 898      44455649 
+ 898      4345305F 
+ 898      434F4E46 
+ 899              	.LASF22:
+ 900 009a 73746174 		.ascii	"status\000"
+ 900      757300
+ 901              	.LASF40:
+ 902 00a1 55534246 		.ascii	"USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE"
+ 902      535F315F 
+ 902      44455649 
+ 902      4345305F 
+ 902      434F4E46 
+ 903 00d4 305F4849 		.ascii	"0_HID_IN_RPT_SCB\000"
+ 903      445F494E 
+ 903      5F525054 
+ 903      5F534342 
+ 903      00
+ 904              	.LASF26:
+ 905 00e5 70446174 		.ascii	"pData\000"
+ 905      6100
+ 906              	.LASF16:
+ 907 00eb 616C7453 		.ascii	"altSetting\000"
+ 907      65747469 
+ 907      6E6700
+ 908              	.LASF11:
+ 909 00f6 666C6F61 		.ascii	"float\000"
+ 909      7400
+ 910              	.LASF44:
+ 911 00fc 55534246 		.ascii	"USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE"
+ 911      535F315F 
+ 911      44455649 
+ 911      4345305F 
+ 911      434F4E46 
+ 912 012f 305F4849 		.ascii	"0_HID_TABLE\000"
+ 912      445F5441 
+ 912      424C4500 
+ 913              	.LASF47:
+ 914 013b 433A5C55 		.ascii	"C:\\Users\\Keshuai\\Documents\\PSoC Creator\\Worksp"
+ 914      73657273 
+ 914      5C4B6573 
+ 914      68756169 
+ 914      5C446F63 
+ 915 0169 61636530 		.ascii	"ace01\\n00b.cydsn\000"
+ 915      315C6E30 
+ 915      30622E63 
+ 915      7964736E 
+ 915      00
+ 916              	.LASF38:
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 18
+
+
+ 917 017a 55534246 		.ascii	"USBFS_1_TABLE\000"
+ 917      535F315F 
+ 917      5441424C 
+ 917      4500
+ 918              	.LASF1:
+ 919 0188 756E7369 		.ascii	"unsigned char\000"
+ 919      676E6564 
+ 919      20636861 
+ 919      7200
+ 920              	.LASF18:
+ 921 0196 61747472 		.ascii	"attributes\000"
+ 921      69627574 
+ 921      657300
+ 922              	.LASF5:
+ 923 01a1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 923      20756E73 
+ 923      69676E65 
+ 923      6420696E 
+ 923      7400
+ 924              	.LASF17:
+ 925 01b3 61646472 		.ascii	"addr\000"
+ 925      00
+ 926              	.LASF24:
+ 927 01b8 545F5553 		.ascii	"T_USBFS_1_XFER_STATUS_BLOCK\000"
+ 927      4246535F 
+ 927      315F5846 
+ 927      45525F53 
+ 927      54415455 
+ 928              	.LASF37:
+ 929 01d4 55534246 		.ascii	"USBFS_1_DEVICE0_TABLE\000"
+ 929      535F315F 
+ 929      44455649 
+ 929      4345305F 
+ 929      5441424C 
+ 930              	.LASF21:
+ 931 01ea 545F5553 		.ascii	"T_USBFS_1_EP_SETTINGS_BLOCK\000"
+ 931      4246535F 
+ 931      315F4550 
+ 931      5F534554 
+ 931      54494E47 
+ 932              	.LASF12:
+ 933 0206 646F7562 		.ascii	"double\000"
+ 933      6C6500
+ 934              	.LASF10:
+ 935 020d 75696E74 		.ascii	"uint16\000"
+ 935      313600
+ 936              	.LASF34:
+ 937 0214 55534246 		.ascii	"USBFS_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE\000"
+ 937      535F315F 
+ 937      44455649 
+ 937      4345305F 
+ 937      434F4E46 
+ 938              	.LASF45:
+ 939 0245 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 939      4320342E 
+ 939      392E3320 
+ 939      32303135 
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 19
+
+
+ 939      30333033 
+ 940 0278 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 940      20726576 
+ 940      6973696F 
+ 940      6E203232 
+ 940      31323230 
+ 941 02ab 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 941      66756E63 
+ 941      74696F6E 
+ 941      2D736563 
+ 941      74696F6E 
+ 942              	.LASF8:
+ 943 02d3 756E7369 		.ascii	"unsigned int\000"
+ 943      676E6564 
+ 943      20696E74 
+ 943      00
+ 944              	.LASF30:
+ 945 02e0 545F5553 		.ascii	"T_USBFS_1_LUT\000"
+ 945      4246535F 
+ 945      315F4C55 
+ 945      5400
+ 946              	.LASF31:
+ 947 02ee 55534246 		.ascii	"USBFS_1_DEVICE0_DESCR\000"
+ 947      535F315F 
+ 947      44455649 
+ 947      4345305F 
+ 947      44455343 
+ 948              	.LASF7:
+ 949 0304 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 949      206C6F6E 
+ 949      6720756E 
+ 949      7369676E 
+ 949      65642069 
+ 950              	.LASF29:
+ 951 031b 705F6C69 		.ascii	"p_list\000"
+ 951      737400
+ 952              	.LASF14:
+ 953 0322 73697A65 		.ascii	"sizetype\000"
+ 953      74797065 
+ 953      00
+ 954              	.LASF42:
+ 955 032b 55534246 		.ascii	"USBFS_1_HIDREPORT_DESCRIPTOR1\000"
+ 955      535F315F 
+ 955      48494452 
+ 955      45504F52 
+ 955      545F4445 
+ 956              	.LASF6:
+ 957 0349 6C6F6E67 		.ascii	"long long int\000"
+ 957      206C6F6E 
+ 957      6720696E 
+ 957      7400
+ 958              	.LASF46:
+ 959 0357 47656E65 		.ascii	"Generated_Source\\PSoC5\\USBFS_1_descr.c\000"
+ 959      72617465 
+ 959      645F536F 
+ 959      75726365 
+ 959      5C50536F 
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 20
+
+
+ 960              	.LASF33:
+ 961 037e 55534246 		.ascii	"USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_TABLE\000"
+ 961      535F315F 
+ 961      44455649 
+ 961      4345305F 
+ 961      434F4E46 
+ 962              	.LASF19:
+ 963 03ae 62756666 		.ascii	"bufferSize\000"
+ 963      65725369 
+ 963      7A6500
+ 964              	.LASF2:
+ 965 03b9 73686F72 		.ascii	"short int\000"
+ 965      7420696E 
+ 965      7400
+ 966              	.LASF9:
+ 967 03c3 75696E74 		.ascii	"uint8\000"
+ 967      3800
+ 968              	.LASF15:
+ 969 03c9 696E7465 		.ascii	"interface\000"
+ 969      72666163 
+ 969      6500
+ 970              	.LASF39:
+ 971 03d3 55534246 		.ascii	"USBFS_1_STRING_DESCRIPTORS\000"
+ 971      535F315F 
+ 971      53545249 
+ 971      4E475F44 
+ 971      45534352 
+ 972              	.LASF35:
+ 973 03ee 55534246 		.ascii	"USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS\000"
+ 973      535F315F 
+ 973      44455649 
+ 973      4345305F 
+ 973      434F4E46 
+ 974              	.LASF13:
+ 975 041d 63686172 		.ascii	"char\000"
+ 975      00
+ 976              	.LASF28:
+ 977 0422 545F5553 		.ascii	"T_USBFS_1_TD\000"
+ 977      4246535F 
+ 977      315F5444 
+ 977      00
+ 978              	.LASF0:
+ 979 042f 7369676E 		.ascii	"signed char\000"
+ 979      65642063 
+ 979      68617200 
+ 980              	.LASF41:
+ 981 043b 55534246 		.ascii	"USBFS_1_DEVICE0_CONFIGURATION0_INTERFACE0_ALTERNATE"
+ 981      535F315F 
+ 981      44455649 
+ 981      4345305F 
+ 981      434F4E46 
+ 982 046e 305F4849 		.ascii	"0_HID_IN_BUF\000"
+ 982      445F494E 
+ 982      5F425546 
+ 982      00
+ 983              	.LASF23:
+ 984 047b 6C656E67 		.ascii	"length\000"
+ARM GAS  C:\Users\Keshuai\AppData\Local\Temp\ccVob5EQ.s 			page 21
+
+
+ 984      746800
+ 985              	.LASF36:
+ 986 0482 55534246 		.ascii	"USBFS_1_DEVICE0_CONFIGURATION0_TABLE\000"
+ 986      535F315F 
+ 986      44455649 
+ 986      4345305F 
+ 986      434F4E46 
+ 987              	.LASF20:
+ 988 04a7 624D6973 		.ascii	"bMisc\000"
+ 988      6300
+ 989              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
